@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.log
+data/*.json
+data/*.csv
+data/*.db
+!data/.gitkeep
+.DS_Store
+Thumbs.db
+dist/
+build/

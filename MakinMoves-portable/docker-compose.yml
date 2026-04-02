@@ -1,0 +1,76 @@
+services:
+  # ── PostgreSQL Database ──────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: mm-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: makinmoves
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme123}
+      POSTGRES_DB: makinmoves
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U makinmoves"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── n8n Workflow Automation ──────────────────────────
+  # Web UI at http://localhost:5678
+  # Build automation workflows: email, scraping, social media, etc.
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: mm-n8n
+    restart: unless-stopped
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_USER:-admin}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD:-changeme123}
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=makinmoves
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD:-changeme123}
+      - N8N_PORT=5678
+      - WEBHOOK_URL=http://localhost:5678/
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ── Redis (caching & queues) ─────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: mm-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+
+  # ── Selenium for web scraping ────────────────────────
+  selenium:
+    image: selenium/standalone-chromium:latest
+    container_name: mm-selenium
+    restart: unless-stopped
+    ports:
+      - "4444:4444"
+      - "7900:7900"  # noVNC viewer at http://localhost:7900
+    shm_size: "2gb"
+    environment:
+      - SE_NODE_MAX_SESSIONS=3
+      - SE_VNC_NO_PASSWORD=1
+
+volumes:
+  pg_data:
+  n8n_data:
+  redis_data:

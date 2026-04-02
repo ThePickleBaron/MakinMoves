@@ -1,0 +1,33 @@
+{
+  "name": "makinmoves",
+  "version": "1.0.0",
+  "description": "Passive income toolkit - digital products, SaaS, content, trading & automation",
+  "private": true,
+  "scripts": {
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:reset": "docker compose down -v && docker compose up -d",
+    "db:migrate": "node scripts/db-migrate.js",
+    "scrape": "node tools/scraper.js",
+    "dashboard": "node tools/dashboard.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.0",
+    "redis": "^4.7.0",
+    "puppeteer": "^23.0.0",
+    "cheerio": "^1.0.0",
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0",
+    "express": "^4.21.0",
+    "ejs": "^3.1.10",
+    "node-cron": "^3.0.3",
+    "csv-parse": "^5.5.0",
+    "csv-stringify": "^6.5.0",
+    "marked": "^14.0.0",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

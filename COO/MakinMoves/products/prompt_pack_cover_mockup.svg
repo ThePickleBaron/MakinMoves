@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <!-- Gradient background (Navy gradient) -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1B2A4A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F1620;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Shadow for price badge -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+    </filter>
+
+    <!-- Shadow for savings circle -->
+    <filter id="circleShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+
+  <!-- Safe zone visual guide (very subtle, for reference) -->
+  <rect x="280" y="0" width="720" height="720" fill="none" stroke="#FF6B6B" stroke-width="1" stroke-dasharray="5,5" opacity="0.1"/>
+
+  <!-- Chat bubble accent (top right) - outside safe zone -->
+  <!-- Large circle -->
+  <circle cx="1000" cy="80" r="60" fill="#FF6B6B" opacity="0.5"/>
+
+  <!-- Medium circle -->
+  <circle cx="1080" cy="140" r="40" fill="#FF6B6B" opacity="0.35"/>
+
+  <!-- Small circle -->
+  <circle cx="1120" cy="100" r="25" fill="#FF6B6B" opacity="0.2"/>
+
+  <!-- Title -->
+  <text x="640" y="200" font-family="Montserrat, sans-serif" font-size="64" font-weight="bold" text-anchor="middle" fill="#FFFFFF" letter-spacing="-1">
+    <tspan>50 AI Prompts for</tspan>
+    <tspan x="640" dy="75">Freelancers</tspan>
+  </text>
+
+  <!-- Title underline -->
+  <line x1="540" y1="240" x2="740" y2="240" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Subtitle -->
+  <text x="640" y="320" font-family="Open Sans, sans-serif" font-size="28" font-weight="400" text-anchor="middle" fill="#FFFFFF" line-height="1.4">
+    <tspan>Land Clients. Close Deals.</tspan>
+    <tspan x="640" dy="38">Save 10+ Hours/Week.</tspan>
+  </text>
+
+  <!-- Price badge background (pill shape with border) -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="405" width="160" height="70" rx="35" ry="35" fill="#2D3E5F" opacity="0.8" stroke="#FF6B6B" stroke-width="2"/>
+
+    <!-- Price text -->
+    <text x="640" y="450" font-family="Roboto Mono, monospace" font-size="44" font-weight="bold" text-anchor="middle" fill="#FF6B6B">
+      $24
+    </text>
+  </g>
+
+  <!-- Brand footer -->
+  <text x="640" y="680" font-family="Open Sans, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#FFFFFF" opacity="0.7">
+    ExsituInnovations
+  </text>
+
+  <!-- Annotation guides (optional - remove before final use) -->
+  <!-- Safe zone label (top) -->
+  <text x="640" y="25" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#FF6B6B" opacity="0.3">
+    SAFE ZONE (CENTER 720×720)
+  </text>
+
+  <!-- Dimensions annotation (bottom left) -->
+  <text x="20" y="710" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" opacity="0.3">
+    1280 × 720 px (16:9)
+  </text>
+
+  <!-- Product info annotation (bottom right) -->
+  <text x="1220" y="710" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="#FFFFFF" opacity="0.3">
+    Product 1 Cover Mockup v1.0
+  </text>
+</svg>

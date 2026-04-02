@@ -1,0 +1,387 @@
+================================================================================
+PLATFORM API RESEARCH - QUICK REFERENCE CARD
+================================================================================
+Research Date: 2026-03-29 | Status: COMPLETE | Build Time: 36 hours
+
+================================================================================
+START HERE (READ IN THIS ORDER)
+================================================================================
+
+1. RESEARCH_SUMMARY.md (5 min)
+   → What we discovered about each platform
+
+2. PLATFORM_API_MAPPING_2026.md (30 min)
+   → Complete implementation guide
+
+3. PLATFORM_IMPLEMENTATION_CHECKLIST.md (Print it)
+   → Track progress during 36-hour sprint
+
+4. DATABASE_SCHEMA.sql (Deploy it)
+   → Create PostgreSQL tables
+
+================================================================================
+PLATFORM PRIORITY & TIMINGS
+================================================================================
+
+TIER 1 (Day 1 - PoC):
+  P0-1: GUMROAD (4h) ← START HERE
+        - API token auth
+        - Hourly polling (sales data)
+        - n8n Trigger node ready
+
+  P0-2: ETSY (6h)
+        - OAuth 2.0 auth
+        - Daily polling (rate limit = 10K QPD sliding window)
+        - HTTP Request node
+        - WATCH: Sliding window rate limit tracking (critical)
+
+TIER 2 (Day 1.5 - Diversify):
+  P1-1: WORDPRESS (4h)
+        - App Password auth (simple)
+        - Custom post type for earnings
+        - HTTP Request node
+
+  P1-2: MEDIUM (3h)
+        - Manual earnings logging (NO API for earnings)
+        - Dashboard check only
+
+  P2: REDBUBBLE (2h)
+      - Manual earnings logging (NO API, blocks scrapers)
+      - Dashboard check only
+
+================================================================================
+RATE LIMITS (CRITICAL FOR ETSY)
+================================================================================
+
+GUMROAD:        Undocumented → Use 2-second delay between requests
+ETSY:           10 QPS / 10,000 QPD (SLIDING WINDOW - watch this!)
+                Daily budget: 2,400 (hourly checks) + 1,000 (batch) + 6,600 (reserve)
+MEDIUM:         Unknown → Keep requests minimal (daily only)
+WORDPRESS:      Host-dependent → Start 50/day, scale as needed
+REDBUBBLE:      N/A (no API, blocks scrapers)
+
+KEY: Etsy's sliding window = current 24h rolling, not fixed reset time
+
+================================================================================
+AUTHENTICATION QUICK SETUP
+================================================================================
+
+GUMROAD:
+  1. Settings → API
+  2. Generate access token
+  3. Copy token to n8n Credentials (Gumroad type)
+  Verify: GET /me endpoint
+
+ETSY:
+  1. Create developer account
+  2. Create app (get Client ID + Secret)
+  3. Request scopes: listings_r, transactions_r, shops_r
+  4. OAuth redirect URI: https://<n8n>/rest/oauth2/callback?service=etsy
+  5. Set up in n8n HTTP Request credentials
+  Verify: OAuth flow works, access token obtained
+
+WORDPRESS:
+  1. Log in to admin
+  2. Users → Your Profile
+  3. Application Passwords → Create
+  4. Name: "MakinMoves-n8n"
+  5. Store: username:password in n8n Basic Auth
+  Verify: GET /wp-json/wp/v2/me works
+
+MEDIUM:
+  1. Settings → Integration tokens
+  2. Create token
+  3. Store in n8n as Bearer token
+  Verify: GET /me endpoint
+  Note: API deprecated but functional
+
+REDBUBBLE:
+  N/A - Manual dashboard only
+
+================================================================================
+PII HANDLING (MUST DO)
+================================================================================
+
+HASH EMAIL/USERNAME BEFORE STORING:
+  const crypto = require('crypto');
+  const hash = crypto.createHash('sha256')
+    .update(email_or_username)
+    .digest('hex');
+
+GUMROAD:  Hash customer_email before storing
+ETSY:     Hash buyer_username before storing
+OTHERS:   No PII exposure
+
+NEVER:    Log passwords, tokens, API keys
+          Log plaintext emails/usernames
+          Store credentials outside n8n vault
+
+================================================================================
+ERROR HANDLING PATTERNS
+================================================================================
+
+429 (RATE LIMIT):
+  → Wait: Retry-After header or exponential backoff (1s, 2s, 4s, 8s)
+  → Retry: Max 3 times
+  → Log to: api_errors table
+  → Alert: Only on final failure
+
+401/403 (AUTH FAILURE):
+  → For Etsy: Trigger OAuth refresh
+  → For others: Alert CTMO (manual intervention)
+  → Stop polling until resolved
+  → Log to: api_errors table
+
+TIMEOUT:
+  → Wait: Exponential backoff (1s, 2s, 4s, 8s)
+  → Retry: Max 3 times
+  → Log to: api_errors table
+  → Retry next cycle
+
+ALL FAILURES:
+  → Log to: api_errors table (platform, endpoint, error_code, error_message)
+  → Alert if: > 3 consecutive failures on single platform
+  → Email: Daily summary of errors (if any)
+
+================================================================================
+DATABASE TABLES (QUICK REFERENCE)
+================================================================================
+
+REVENUE CAPTURE:
+  gumroad_sales
+    sale_id (PK), product_id, amount, customer_email_hash, created_at
+
+  etsy_sales
+    transaction_id (PK), listing_id, amount, buyer_username_hash, created_at
+
+  wordpress_earnings
+    post_id (PK), affiliate_program, earnings, clicks, date
+
+  medium_earnings
+    id (PK), earnings, views, reads, date
+
+  redbubble_earnings
+    id (PK), earnings, orders, views, date
+
+UNIFIED:
+  daily_revenue_summary
+    date (PK), gumroad_revenue, etsy_revenue, wordpress_revenue, medium_revenue, redbubble_revenue, total_revenue
+
+ERROR TRACKING:
+  api_errors
+    id (PK), platform, endpoint, error_code, error_message, occurred_at, resolved
+
+METADATA:
+  gumroad_products, etsy_listings, etsy_rate_limit_tracking, credentials_metadata
+
+RUN: DATABASE_SCHEMA.sql to create all 14 tables
+
+================================================================================
+n8n WORKFLOW CHECKLIST
+================================================================================
+
+WORKFLOW 1: Gumroad Hourly Poll
+  Trigger: Interval (60 minutes)
+  ├─ HTTP Request: GET /products (Gumroad auth)
+  ├─ Loop: For each product
+  │  └─ HTTP Request: GET /products/{id}/sales
+  ├─ Code: Hash customer_email (SHA256)
+  ├─ Postgres: Insert gumroad_sales
+  └─ Error Handler: Log to api_errors
+
+WORKFLOW 2: Etsy Daily Stats
+  Trigger: Cron (0 2 * * * = 2am UTC daily)
+  ├─ Postgres: Check rate limit budget
+  ├─ HTTP Request: GET /users/me (Etsy OAuth)
+  ├─ HTTP Request: GET /shops/{id}/listings/active
+  ├─ Loop: For each listing (max 50)
+  │  └─ HTTP Request: GET /listings/{id}/stats (with retry)
+  ├─ Code: Hash buyer_username, transform
+  ├─ Postgres: Insert etsy_sales
+  ├─ Postgres: Update rate_limit_tracking
+  └─ Error Handler: Log to api_errors
+
+WORKFLOW 3: WordPress Earnings (Manual Entry)
+  Trigger: Manual
+  ├─ Form Input: affiliate_program, earnings, clicks
+  ├─ HTTP Request: POST /wp-json/wp/v2/earnings (WordPress auth)
+  ├─ Postgres: Insert wordpress_earnings
+  └─ Success: Confirmation
+
+WORKFLOW 4: Medium Earnings (Manual)
+  Trigger: Manual
+  ├─ Form Input: earnings, views, reads
+  ├─ Postgres: Insert medium_earnings
+  └─ Success: Confirmation
+
+WORKFLOW 5: Redbubble Earnings (Manual)
+  Trigger: Manual
+  ├─ Form Input: earnings, orders, views
+  ├─ Postgres: Insert redbubble_earnings
+  └─ Success: Confirmation
+
+WORKFLOW 6: Daily Revenue Summary
+  Trigger: Cron (0 3 * * * = 3am UTC daily)
+  ├─ Postgres: Query gumroad_sales (yesterday)
+  ├─ Postgres: Query etsy_sales (yesterday)
+  ├─ Postgres: Query wordpress_earnings (yesterday)
+  ├─ Postgres: Query medium_earnings (yesterday)
+  ├─ Postgres: Query redbubble_earnings (yesterday)
+  ├─ Calculate: Total revenue = sum of all 5
+  ├─ Postgres: Insert daily_revenue_summary
+  └─ Email: Send to COO/CEO (daily summary)
+
+================================================================================
+HOUR-BY-HOUR TIMELINE
+================================================================================
+
+HOURS 0-3: SETUP
+  □ Gather all credentials (5 platforms)
+  □ Run DATABASE_SCHEMA.sql
+  □ Configure n8n (PostgreSQL connection)
+  □ Test: n8n → database query works
+
+HOURS 4-5: GUMROAD (FIRST REVENUE!)
+  □ Setup Gumroad API token in n8n
+  □ Build hourly poll workflow
+  □ Test: Data appears in database
+  □ Deploy: Activate schedule
+
+HOURS 6-10: ETSY (SCALE VOLUME)
+  □ Setup Etsy OAuth in n8n
+  □ Build daily stats workflow
+  □ Implement rate limit tracking
+  □ Test: Rate limits respected
+  □ Deploy: Activate schedule
+
+HOURS 11-15: WORDPRESS (DIVERSIFY)
+  □ Setup App Password in n8n
+  □ Create custom post type (earnings)
+  □ Build manual earnings form
+  □ Test: Post created in WordPress
+  □ Deploy: Activate workflow
+
+HOURS 16-19: MEDIUM + REDBUBBLE
+  □ Setup Medium token in n8n
+  □ Build manual earnings forms (both)
+  □ Test: Data saved to database
+  □ Document: Manual processes
+
+HOURS 20-24: AGGREGATION
+  □ Build daily_revenue_summary workflow
+  □ Setup email alerts
+  □ Test: Summary calculates correctly
+  □ Deploy: Activate schedule
+
+HOURS 25-30: MONITORING & ERROR HANDLING
+  □ Setup rate limit alerts (Etsy)
+  □ Setup error monitoring (all platforms)
+  □ Configure email notifications
+  □ Test: Alerts trigger correctly
+
+HOURS 31-36: FINAL TESTING & DEPLOYMENT
+  □ E2E test: All 5 platforms (top to bottom)
+  □ Load test: Simulate 10x volume
+  □ Data quality: No NULLs, no duplicates
+  □ Sign-off: All workflows tested & live
+
+================================================================================
+SUCCESS METRICS (By Hour 36)
+================================================================================
+
+✓ MUST HAVE:
+  □ Gumroad: 10+ sales in database
+  □ Etsy: 1+ listings stats in database
+  □ WordPress: 1+ earnings entry
+  □ Medium: 1+ earnings entry
+  □ Redbubble: 1+ earnings entry
+  □ Daily summary: Yesterday's total calculated
+  □ All workflows: Deployed & active
+
+✓ SHOULD HAVE:
+  □ Email alerts: Daily summary working
+  □ Error monitoring: api_errors logging
+  □ Rate limit tracking: Etsy QPD under 80%
+  □ Documentation: All workflows commented
+
+✓ NICE TO HAVE:
+  □ Dashboard: PostgreSQL → visualization
+  □ Historical backfill: 30-day look-back
+  □ Auto-recovery: Failed syncs retry
+
+================================================================================
+FILE LOCATIONS
+================================================================================
+
+/c/Users/jsmcl/documents/makinmoves/ctmo/technical/
+
+├─ 00_INDEX_PLATFORM_RESEARCH.md ← Document map
+├─ RESEARCH_SUMMARY.md ← Executive summary
+├─ PLATFORM_API_MAPPING_2026.md ← Implementation guide (MAIN)
+├─ PLATFORM_IMPLEMENTATION_CHECKLIST.md ← Track progress (PRINT IT)
+├─ DATABASE_SCHEMA.sql ← Deploy to PostgreSQL (COPY-PASTE)
+├─ RESEARCH_COMPLETION_LOG.md ← Final handoff
+└─ QUICK_REFERENCE_CARD.txt ← This file
+
+================================================================================
+COMMON BLOCKERS & FIXES
+================================================================================
+
+BLOCKER: "Etsy OAuth not working"
+FIX: Verify redirect URI matches exactly: https://<n8n>/rest/oauth2/callback?service=etsy
+
+BLOCKER: "Gumroad getting 429 (rate limited)"
+FIX: Add 2-second delay between product requests (global)
+
+BLOCKER: "WordPress custom post type not in REST API"
+FIX: Set 'show_in_rest' => true in register_post_type() call
+
+BLOCKER: "Email not hashing correctly"
+FIX: Use SHA256, not other algorithms: crypto.createHash('sha256')
+
+BLOCKER: "Database inserts failing"
+FIX: Check: character encoding UTF-8, amounts are decimal(10,2), dates are ISO format
+
+BLOCKER: "Rate limit tracking not working"
+FIX: Verify: SQL updates rolling_window_start correctly every 24h
+
+================================================================================
+CRITICAL REMINDERS
+================================================================================
+
+1. HASH CUSTOMER DATA (emails, usernames) before storing
+2. ETSY RATE LIMITS are sliding window, not fixed reset time
+3. MEDIUM/REDBUBBLE have no earnings APIs (use manual only)
+4. WORDPRESS needs custom post type registered with 'show_in_rest' => true
+5. NEVER log tokens, passwords, or plaintext PII
+6. Test rate limit retry logic BEFORE deploying to production
+7. Monitor api_errors table for integration health
+8. Run daily_revenue_summary aggregation at 3am UTC (after all other workflows)
+9. Email alerts on errors only (not every successful sync)
+10. Keep n8n credentials vault encryption key backed up
+
+================================================================================
+YOU'VE GOT THIS - GO BUILD
+================================================================================
+
+You have:
+  ✓ 5 API platforms mapped
+  ✓ 36-hour implementation plan
+  ✓ Production-ready database schema
+  ✓ Error handling patterns
+  ✓ n8n workflow templates
+  ✓ Step-by-step checklist
+  ✓ Hour-by-hour timeline
+
+Start with:
+  1. Read RESEARCH_SUMMARY.md
+  2. Read PLATFORM_API_MAPPING_2026.md sections 1-3
+  3. Print PLATFORM_IMPLEMENTATION_CHECKLIST.md
+  4. Deploy DATABASE_SCHEMA.sql
+  5. Start Hour 0 (Phase 1: Setup)
+
+Target Completion: 2026-03-31 (36 hours from start)
+
+Let's go.
+
+================================================================================

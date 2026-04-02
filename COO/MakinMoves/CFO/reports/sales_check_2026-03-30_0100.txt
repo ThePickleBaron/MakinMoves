@@ -1,0 +1,20 @@
+GUMROAD SALES CHECK — 2026-03-30 01:00 UTC
+===============================================
+
+Status: API CHECK BLOCKED
+Reason: Gumroad API (api.gumroad.com) is blocked by network proxy allowlist
+
+Baseline Data:
+- Products Live: 3 (AI Prompts $24, Notion Tracker $39, Bundle $49)
+- Sales URL: https://mclarty6.gumroad.com
+- Gumroad Account: Connected
+- API Access: Restricted (network proxy blocks outbound HTTPS to Gumroad)
+
+Revenue to Date: $0 (unable to verify via API)
+
+Action Required:
+- Network allowlist must be updated to include api.gumroad.com for automated sales tracking
+- Alternative: Manual check at https://mclarty6.gumroad.com/account/sales recommended
+- Scheduled checks will retry after network access is restored
+
+Next scheduled check: 2026-03-30 05:00 UTC

@@ -1,0 +1,47 @@
+GUMROAD SALES CHECK — 2026-03-30 17:10 UTC
+===============================================
+
+Status: VERIFIED VIA BROWSER (Dashboard + Analytics + Public Storefront)
+
+Dashboard Summary (gumroad.com/dashboard):
+- Balance: $0
+- Last 7 days: $0
+- Last 28 days: $0
+- Total earnings: $0
+
+Product Status (gumroad.com/products):
+  1. AI Prompts for Freelancers       | $24 | Published | 0 sales | $0
+  2. Freelancer Invoice + Client Tracker (Notion) | $39 | Published | 0 sales | $0
+  3. Freelance Starter Kit (Bundle)   | $49 | Published | 0 sales | $0
+
+Analytics (30-day window 2/28–3/30):
+- Total Sales: 0
+- Total Views: 0
+- Referrers: None
+- Locations: None
+
+⚠️  CRITICAL ISSUE: PRODUCTS NOT VISIBLE ON PUBLIC STOREFRONT
+- Dashboard shows all 3 products as "Published"
+- However, public storefront (outdoorphunk.gumroad.com) shows ZERO products
+- Individual product page (ai-prompts-freelancers) displays: "This product is not currently for sale"
+- Price on product page showing in GBP (£27) instead of USD ($24) — possible currency/region config issue
+
+This means even if traffic were driven to the store, customers CANNOT purchase.
+
+Root Cause Hypotheses:
+1. Products may need explicit "listing" on the profile page (Published ≠ Listed on profile)
+2. Currency/region settings may be misconfigured
+3. Product visibility toggle may be separate from publish status
+
+Recommended Actions:
+1. URGENT: Check each product's settings for "Show on profile" or equivalent toggle
+2. Verify currency is set to USD
+3. Test each direct product link (outdoorphunk.gumroad.com/l/ai-prompts-freelancers) to confirm purchasability
+4. Review Gumroad's "Published" vs "Listed" distinction
+
+Revenue to Date: $0
+Week 1 Target: 5-10 sales ($120-$490 gross) by April 5-7
+Days Remaining to Target: 6-8 days
+No sales yet. Zero views indicates zero traffic AND zero storefront visibility.
+
+Next scheduled check: ~4 hours

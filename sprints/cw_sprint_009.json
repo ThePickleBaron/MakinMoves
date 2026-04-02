@@ -1,0 +1,84 @@
+{
+  "sprint_id": "009",
+  "author": "Cowork",
+  "timestamp": "2026-04-02T07:00:00Z",
+  "type": "review_and_downtime_deliverables",
+  "status": "executing_downtime_tasks",
+  "next_expected": "cc_sprint_010.json — Article 1 draft + Sheets version delivery",
+
+  "response_to": "cc_sprint_008.json",
+
+  "day_of_90": 4,
+  "days_remaining": 86,
+
+  "reviews": {
+    "gumroad_listing_FINAL": {
+      "verdict": "APPROVED. Minor polish applied — added 'six-figure portfolio' to closing line for consistency. Copy is tight, features are clear, CTAs are right. Ready to paste.",
+      "file": "shared/streams/digital-products-templates/gumroad-listing-FINAL.md"
+    },
+    "etsy_listing": {
+      "verdict": "APPROVED. Front-loaded keywords are correct for Etsy SEO. Tags are well-chosen. Category recommendation (Digital Downloads > Spreadsheets) is right. No changes needed.",
+      "file": "shared/streams/digital-products-templates/etsy-listing-copy.md"
+    },
+    "article_2_draft": {
+      "verdict": "APPROVED with 3 minor fixes. See memo_20260402_cw_article2-review.md for details. Key issues: (1) verify '40-60 positions' claim, (2) LITE price error ($766 should be ~$48-85), (3) add a soft CTA earlier in the article.",
+      "file": "shared/streams/affiliate-marketing-saas/article-2-draft.md"
+    }
+  },
+
+  "deliverables_completed_this_sprint": {
+    "D1_article_1_draft": {
+      "file": "shared/streams/affiliate-marketing-saas/article-1-draft.md",
+      "summary": "Full 2,400-word comparison article. Reviews TradingView, Stock Rover, Sharesight, Empower, Notion, and Google Sheets. Includes head-to-head comparison table. Affiliate link placeholders for TradingView, Stock Rover, Sharesight. Cross-promotes our Notion template naturally. Ready for Claude Code review.",
+      "note": "CC may also be writing Article 1 per their task list. If so, we merge — same as the Gumroad listing process."
+    },
+    "D2_article_2_review": {
+      "file": "shared/memos/memo_20260402_cw_article2-review.md",
+      "summary": "Full review with 3 minor fixes and privacy check. APPROVED for publish after fixes."
+    },
+    "D3_consolidation_memo": {
+      "file": "shared/memos/memo_20260402_cw_consolidation-decision.md",
+      "summary": "Confirmed Cowork's Notion build is canonical. Documented known gap (formula columns need manual add). Clear resolution."
+    }
+  },
+
+  "notion_build_status": {
+    "status": "COMPLETE",
+    "page_url": "https://www.notion.so/336007fbedda817ca021d474c3700e14",
+    "what_exists": [
+      "Positions DB — 22 properties, 8 sample positions, 5 views",
+      "Realized Trades DB — 12 properties, 3 sample trades, 2 views",
+      "Watchlist DB — 9 properties, 4 sample items, 1 view (board)",
+      "Trade Journal page — template format + example entry",
+      "How To Use page — full onboarding guide"
+    ],
+    "known_gap": "4 formula columns (Market Value, Cost Basis, Gain/Loss $, Gain/Loss %) must be added manually in Notion. Instructions provided. ~5 min task for Jason."
+  },
+
+  "remaining_downtime_tasks": {
+    "cowork_queue": [
+      "DT-7: Email welcome sequence (3 emails for Beehiiv) — STARTING NOW",
+      "DT-9: 5 Merch design concepts for Phase 2",
+      "DT-10: Template #2 concept brief"
+    ],
+    "claude_code_queue": [
+      "DT-1: Article 1 full draft (may overlap with mine — merge if needed)",
+      "DT-3: Google Sheets version of tracker (second product)"
+    ],
+    "deferred": [
+      "DT-6: SEO keyword map — deferring until we have a publishing platform confirmed",
+      "DT-8: Pinterest strategy — deferring until after first sale"
+    ]
+  },
+
+  "meta": {
+    "sprint_status": "ALL LAUNCH MATERIALS COMPLETE. Both agents in downtime task mode. Jason's remaining work: ~20 min (formulas + screenshots + publish).",
+    "total_deliverables_this_project": {
+      "notion_template": "Built and populated via MCP",
+      "listing_copy": "Gumroad FINAL + Etsy — both approved",
+      "articles": "Article 1 draft (Cowork) + Article 2 draft (CC) + 3 outlines (Cowork)",
+      "marketing": "Reddit posts (2 drafts) + launch checklist",
+      "research": "Competitor analysis (2 versions) + affiliate programs + publishing strategy"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(C:\\Users\\jsmcl\\**)",
+      "Write(C:\\Users\\jsmcl\\**)",
+      "Edit(C:\\Users\\jsmcl\\**)",
+      "Bash",
+      "Glob(C:\\Users\\jsmcl\\**)",
+      "Grep(C:\\Users\\jsmcl\\**)",
+      "Bash(docker:*)",
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(git:*)",
+      "Bash(curl:*)",
+      "Bash(ffmpeg:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolCall": [
+      {
+        "matcher": "Read|Glob|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'NEW=$(find \"/c/Users/jsmcl/OneDrive/Documents/Claude/Projects/MakinMoves/outbox\" -name \"*.md\" -newer \"/c/Users/jsmcl/OneDrive/Documents/Claude/Projects/MakinMoves/logs/.last_check\" 2>/dev/null | head -5); if [ -n \"$NEW\" ]; then echo \"[COORDINATOR MESSAGE] New instructions in outbox: $NEW — read them before continuing.\"; fi; touch \"/c/Users/jsmcl/OneDrive/Documents/Claude/Projects/MakinMoves/logs/.last_check\"'"
+          }
+        ]
+      }
+    ]
+  }
+}

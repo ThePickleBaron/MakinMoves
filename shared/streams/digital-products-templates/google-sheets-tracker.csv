@@ -1,0 +1,6 @@
+Symbol,Description,Account,Sector,Asset Type,Quantity,Avg Cost/Share,Current Price,Market Value,Cost Basis,Gain/Loss $,Gain/Loss %,% of Account,Div Yield,Div Pay Date,Status,Exit Target,Stop Loss,Tags,Thesis
+AAPL,Apple Inc,Individual,Information Technology,Equity,25,178.50,195.25,"=F2*H2","=F2*G2","=I2-J2","=IF(J2<>0,K2/J2,0)",,"","",Active,220,165,"Momentum, Long Term",Core tech holding. Strong services revenue growth.
+XOM,Exxon Mobil Corp,Rollover IRA,Energy,Equity,50,98.30,112.45,"=F3*H3","=F3*G3","=I3-J3","=IF(J3<>0,K3/J3,0)",,0.034,"",Active,130,90,"Dividend, Value",Energy supercycle play. Domestic production hedge.
+GLD,SPDR Gold Shares,Individual,Materials,ETF,40,185.00,210.50,"=F4*H4","=F4*G4","=I4-J4","=IF(J4<>0,K4/J4,0)",,"","",Active,,,Hedge,Gold vault position. Capital preservation.
+INTC,Intel Corp,Individual,Information Technology,Equity,100,42.15,35.80,"=F5*H5","=F5*G5","=I5-J5","=IF(J5<>0,K5/J5,0)",,"","",Active,55,30,"Value, Speculative",Turnaround bet on foundry business.
+NTR,Nutrien Ltd,Rollover IRA,Materials,Equity,30,52.40,58.75,"=F6*H6","=F6*G6","=I6-J6","=IF(J6<>0,K6/J6,0)",,0.038,"",Active,75,,"Value, Dividend",World's largest potash producer. Fertilizer basket anchor.

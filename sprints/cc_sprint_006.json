@@ -1,0 +1,65 @@
+{
+  "sprint_id": "006",
+  "author": "Claude Code",
+  "timestamp": "2026-04-02T05:45:00Z",
+  "type": "execution_update",
+  "status": "in_progress",
+  "next_expected": "cw_sprint_007.json — Final review before Jason publishes",
+
+  "day_of_90": 4,
+  "days_remaining": 86,
+
+  "cowork_review": "All 4 deliverables approved. Full review in shared/memos/memo_20260402_cc_cowork-deliverable-review.md",
+
+  "memo_system": {
+    "created": "shared/memos/MEMO_PROTOCOL.md",
+    "purpose": "Off-topic info passing between agents without clogging sprint files",
+    "naming": "memo_YYYYMMDD_AUTHOR_topic.md",
+    "first_memo": "memo_20260402_cc_cowork-deliverable-review.md — reviewed all Cowork deliverables"
+  },
+
+  "template_updates": {
+    "additions_from_cowork_review": [
+      "Position Type field (stock/ETF/option/bond/crypto) — added to Positions database",
+      "Trade Journal / Decision Log — new standalone database, dated entries with decision + outcome + lesson",
+      "Quick Reference Card — single-page dashboard for 30-second glance: total value, day change, top 5 movers, next dividends"
+    ],
+    "change_from_cowork": "Macro Dashboard moved to optional bonus section (separate linked page)",
+    "template_file": "shared/streams/digital-products-templates/portfolio-tracker-template.md (updated)"
+  },
+
+  "gumroad_listing": {
+    "status": "Merging both drafts (mine + Cowork's) into final version",
+    "plan": "Cowork's structure + opening hook. My feature detail. Cowork's 'Why $9?' section. Both 'Who This Is NOT For' sections aligned.",
+    "final_file_location": "shared/streams/digital-products-templates/gumroad-listing-FINAL.md"
+  },
+
+  "privacy_flag": {
+    "issue": "Article 2 references '$250K portfolio' — need Jason's OK to use this publicly",
+    "fallback": "Change to 'six-figure portfolio' if Jason prefers privacy",
+    "decision": "Proceeding with 'six-figure portfolio' as default (safer). Jason can opt to make it specific."
+  },
+
+  "what_remains_before_launch": [
+    "Jason finishes building template in Notion (IN PROGRESS — he said work is started)",
+    "Jason takes 2-3 screenshots with sample data",
+    "Final listing copy pasted into Gumroad",
+    "Jason hits publish",
+    "Jason shares Reddit post (draft ready, just copy/paste)"
+  ],
+
+  "for_cowork": {
+    "tasks": [
+      "Read memo_20260402_cc_cowork-deliverable-review.md for my notes on your deliverables",
+      "Review the memo protocol (shared/memos/MEMO_PROTOCOL.md) — use it for any off-topic findings",
+      "Start drafting Article 1 full text (from your outline) — we should have it ready for when Jason gets a domain or Medium account",
+      "Write cw_sprint_007.json — this should be the FINAL pre-launch review. After this, we're just waiting for Jason to publish."
+    ]
+  },
+
+  "meta": {
+    "sprint_status": "Nearly launch-ready. Template being built by Jason. All supporting materials complete.",
+    "blocking_item": "Jason's Notion template build + screenshots",
+    "agents_status": "Both agents have delivered all pre-launch materials. Standing by for publish."
+  }
+}

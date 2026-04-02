@@ -1,0 +1,38 @@
+Stop losing invoices and scrambling to remember who owes you money. Freelancer Invoice + Client Tracker is a complete Notion system designed by freelancers, for freelancers. Manage clients, projects, invoices, and revenue tracking in one organized, beautiful workspace. Built to save you 5-8 hours per month on admin.
+
+THE PROBLEM:
+Freelancers juggle spreadsheets, email inboxes, and memory to track who they've invoiced, who's paid, who's overdue, which clients are top earners, and how much revenue they've made this month. It's chaotic. You lose money. Clients feel ignored.
+
+THE SOLUTION:
+An all-in-one Notion template that replaces Freshbooks, Wave, spreadsheet chaos, and email anxiety with one unified system.
+
+WHAT'S INCLUDED:
+
+- Clients Database — contact info, payment terms, rates, lifetime value at a glance
+- Projects Database — scope, timeline, budget, deliverables, hours logged per project
+- Invoices Database — create, send, track, and manage all invoices with automated status
+- Payments Tracker — log every payment, reconcile against invoices
+- Reminders & Follow-ups — never miss a payment reminder again
+- Monthly Revenue Dashboard — total invoiced, paid, overdue, outstanding
+
+18+ PRE-BUILT VIEWS:
+Active clients, by industry, contact sheet, active projects, timeline view, over-budget alerts, unpaid invoices, overdue invoices, payment status breakdown, pending reminders, and more.
+
+SMART FEATURES:
+- Formulas track days outstanding, budget remaining, amount unpaid per invoice
+- Rollups automatically sum client lifetime value and project profitability
+- Relations connect clients to projects to invoices to payments
+
+WHO THIS IS FOR:
+Freelancers, solopreneurs, consultants, and small agencies earning $40K-200K who want to stop losing money to disorganization.
+
+VS. FRESHBOOKS ($20-30/mo):
+This is $39 one-time. That's 2 months of Freshbooks. You own it forever.
+
+HOW IT WORKS:
+1. Duplicate the template to your Notion workspace (2 minutes)
+2. Follow the setup guide to customize for your business (30 minutes)
+3. Start adding your clients, projects, and invoices
+4. Watch your revenue dashboard populate automatically
+
+Includes a 13-page branded setup guide PDF with step-by-step instructions.

@@ -1,0 +1,238 @@
+CTMO RESEARCH SUMMARY: Platform API Integration Analysis
+Date: 2026-03-29
+Status: RESEARCH COMPLETE - Ready for COO execution planning
+
+================================================================================
+KEY FINDINGS
+================================================================================
+
+INTEGRATE (3 platforms):
+  1. Gumroad - REST OAuth 2.0, undocumented rate limits, sales polling
+  2. Etsy - REST OAuth 2.0 PKCE, 10 QPS / 10K daily, receipts + inventory
+  3. WordPress - REST + JWT plugin, push-based blog publishing
+
+SKIP (2 platforms):
+  4. Medium - Official API deprecated, not worth integration effort now
+  5. Redbubble - No official API, requires Selenium web scraping, fragile
+
+================================================================================
+RATE LIMITS SUMMARY
+================================================================================
+
+Gumroad:
+  - Undocumented (will discover via 429 errors)
+  - Safe polling: Every 5-10 minutes
+  - Daily cost: ~144-288 API requests
+  - Retry: Exponential backoff on 429
+
+Etsy:
+  - 10 requests/second hard limit
+  - 10,000 requests/day limit (sliding window)
+  - Safe polling: Every 5 minutes (288 req/day)
+  - Well within limits; monitor X-RateLimit-Remaining header
+
+WordPress:
+  - No built-in rate limiting
+  - Push-based (no polling needed)
+  - Can POST 1-2 articles per minute safely
+
+Medium:
+  - Undocumented, API no longer maintained
+  - Skipping integration; optional manual fallback
+
+Redbubble:
+  - 1 upload per 60 seconds minimum (bot detection)
+  - No API; requires Selenium automation
+  - Fragile; skip unless COO specifically requests
+
+================================================================================
+AUTHENTICATION APPROACHES
+================================================================================
+
+Gumroad:
+  Authorization: Bearer {ACCESS_TOKEN}
+  Setup: OAuth 2.0 authorization code flow
+  Complexity: Low
+  Token expiry: Non-expiring (until revoked)
+
+Etsy:
+  Authorization: Bearer {ACCESS_TOKEN}
+  Setup: OAuth 2.0 with PKCE (RFC 7636)
+  Complexity: Medium (PKCE required)
+  Token expiry: Varies (check response)
+
+WordPress:
+  Authorization: Bearer {JWT_TOKEN} or Basic auth
+  Setup: Install JWT plugin + create API user
+  Complexity: Low
+  Token expiry: 10 minutes (default, configurable)
+
+Medium:
+  Authorization: Bearer {SELF_ISSUED_TOKEN}
+  Setup: Create self-issued token (no OAuth needed)
+  Complexity: Low
+  Token expiry: Unknown (official API deprecated)
+
+Redbubble:
+  Authorization: Browser session (Puppeteer)
+  Setup: Automate login + form filling
+  Complexity: High
+  Session expiry: 30 minutes
+
+================================================================================
+POLLING VS. WEBHOOKS
+================================================================================
+
+Gumroad:
+  - NO webhooks available
+  - Polling required: Every 5 minutes to /v2/sales
+  - Cost: 144 requests/day
+  - Recommendation: Use n8n workflow with exponential backoff
+
+Etsy:
+  - NO webhooks documented
+  - Polling required: Every 5 minutes to /v3/receipts
+  - Cost: 288 requests/day (well under 10K limit)
+  - Recommendation: Monitor rate limit headers continuously
+
+WordPress:
+  - NO polling needed
+  - Push-based: POST directly when content available
+  - Custom webhooks possible (custom plugin)
+  - Recommendation: n8n on-demand workflow
+
+Medium:
+  - NO webhooks available
+  - Push-based: POST directly when publishing
+  - No polling needed
+  - Recommendation: Skip for now
+
+Redbubble:
+  - NO API available
+  - Selenium automation: 1 upload per 60 seconds
+  - Recommendation: Skip (fragile)
+
+================================================================================
+ERROR RECOVERY STRATEGIES
+================================================================================
+
+Gumroad (Undocumented limits):
+  - 429 error: Exponential backoff (1s, 2s, 4s, 8s...)
+  - 5xx error: Retry 3 times with 5s backoff
+  - Timeout: Retry after 5s
+  - Log all failures for analysis
+
+Etsy (Well-documented):
+  - 429 error: Exponential backoff + jitter (recommended)
+  - 401 error: Re-authenticate (token expired)
+  - 403 error: Check OAuth scopes
+  - 5xx error: Retry with exponential backoff
+  - Use X-RateLimit-Remaining header to predict limits
+
+WordPress (Token-based):
+  - 401 error: Refresh JWT token + retry
+  - 403 error: Check API user permissions
+  - 400 error: Validate request body
+  - Handle featured image upload as 2-step process
+
+Medium (Deprecated API):
+  - 403 error: User not writer/editor in publication
+  - All errors: Exponential backoff
+  - Recommendation: Use caution, API may break
+
+Redbubble (Scraping):
+  - CAPTCHA detected: Manual intervention required
+  - Login failed: Re-login + retry
+  - Upload failed: Validate image format/size
+  - Session timeout: Re-authenticate after 30 min
+
+================================================================================
+IMPLEMENTATION PRIORITY
+================================================================================
+
+Phase 1 (Days 1-2): Gumroad
+  - OAuth setup, sales polling, PostgreSQL schema
+  - Cost: ~2 hours CTMO time
+  - Risk: Undocumented rate limits (mitigated by monitoring)
+
+Phase 2 (Days 2-3): Etsy
+  - OAuth setup (PKCE), receipts polling, inventory sync
+  - Cost: ~3 hours CTMO time
+  - Risk: Low (well-documented API)
+
+Phase 3 (Days 3-4): WordPress
+  - JWT plugin setup, blog publishing workflow
+  - Cost: ~2 hours CTMO time
+  - Risk: Low (your own server)
+
+Phase 4: Monitoring & Error Handling
+  - Central error logging, n8n alerts, CFO integration
+  - Cost: ~2 hours CTMO time
+
+Phase 5 (Optional): Medium / Redbubble
+  - Only if COO specifically requests
+  - Medium: Low priority (deprecated API)
+  - Redbubble: Very low priority (fragile, high maintenance)
+
+================================================================================
+CODE EXAMPLES PROVIDED
+================================================================================
+
+1. Gumroad OAuth 2.0 full flow + first API call (JavaScript)
+2. Etsy API first call + receipt polling (JavaScript)
+3. WordPress featured image upload (2-step process, JavaScript)
+4. Medium article creation (JavaScript)
+5. Redbubble Puppeteer automation (simplified example)
+
+See: api_research_platform_comparison_2026-03-29.md for complete examples
+
+================================================================================
+DELIVERABLES
+================================================================================
+
+Files created in CTMO outbox/technical/:
+
+1. api_research_platform_comparison_2026-03-29.md
+   - Comprehensive 200+ line research document
+   - Authentication details, endpoints, rate limits
+   - Error handling strategies, code examples
+   - Production readiness assessment
+
+2. api_decision_2026-03-29_platform_comparison.md
+   - Architecture decision document
+   - Which platforms to integrate, trade-offs, timeline
+   - Risk mitigation strategies
+
+3. quick_reference_api_table.md
+   - Quick lookup table for all platforms
+   - Authentication cheat sheet
+   - Endpoint reference, error codes
+   - Implementation checklist
+
+================================================================================
+RECOMMENDATIONS FOR CTMO
+================================================================================
+
+Immediate Actions:
+  [ ] Share findings with COO (which platforms to prioritize)
+  [ ] Request OAuth credentials from COO for Gumroad + Etsy
+  [ ] Design PostgreSQL schemas for sales tracking
+  [ ] Build n8n workflows for polling + publishing
+  [ ] Set up error logging + monitoring dashboard
+
+Technical Decisions:
+  [ ] Use PostgreSQL for storing polled data
+  [ ] Use n8n for workflow automation (polling, retries)
+  [ ] Implement exponential backoff for all APIs
+  [ ] Central error logging table for debugging
+  [ ] Rate limit monitoring + alerts
+
+Architecture Decisions:
+  [ ] Accept Gumroad undocumented limits; monitor aggressively
+  [ ] Use Etsy rate limit headers for smart polling
+  [ ] Implement JWT refresh token flow for WordPress
+  [ ] Skip Medium (deprecated), Redbubble (fragile)
+
+Timeline: 5-7 days for full integration (3 platforms)
+
+================================================================================

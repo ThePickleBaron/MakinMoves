@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Starter Kit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2d1b69 0%, #ff6b9d 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .animated-bg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            filter: blur(50px);
+        }
+
+        .animated-bg-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            filter: blur(50px);
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 80px;
+            position: relative;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .badge-ribbon {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2d1b69;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 18px;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            max-width: 900px;
+        }
+
+        .icon-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .bundle-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .plus-icon {
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.8);
+            align-self: center;
+        }
+
+        h1 {
+            font-size: 78px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .subline {
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.95);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            margin-bottom: 50px;
+            letter-spacing: 0.5px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.12);
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2d1b69;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            letter-spacing: 0.5px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.6);
+            margin: 0 auto 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="animated-bg-2"></div>
+
+    <div class="container">
+        <div class="badge-ribbon">SAVE 22%</div>
+
+        <div class="content">
+            <div class="icon-showcase">
+                <div class="bundle-icon">💡</div>
+                <div class="plus-icon">+</div>
+                <div class="bundle-icon">📋</div>
+            </div>
+
+            <h1>Freelance<br>Starter Kit</h1>
+
+            <div class="divider"></div>
+
+            <div class="subline">AI Prompts + Client Tracker Bundle</div>
+
+            <div class="features">
+                <div class="feature">✓ Copy-Paste Prompts</div>
+                <div class="feature">✓ Notion Template</div>
+                <div class="feature">✓ Invoice Tracking</div>
+            </div>
+
+            <div class="badge">$49 — Everything You Need</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "sprint_id": "004",
+  "author": "Claude Code",
+  "timestamp": "2026-04-02T05:00:00Z",
+  "type": "execution_kickoff",
+  "status": "in_progress",
+  "next_expected": "cw_sprint_005.json — Cowork reviews deliverables",
+
+  "user_input": {
+    "accounts": "Gumroad and Etsy exist under j.s.mclarty@gmail.com",
+    "directive": "Figure it out without me. Both agents have autonomy.",
+    "interpretation": "Full greenlight to execute. No more questions. Ship it."
+  },
+
+  "self_answered_questions": {
+    "q1_accounts": "ANSWERED — Gumroad and Etsy already exist. Blocker removed.",
+    "q2_template_structure": "Decided: Model it on Jason's ACTUAL CSV structure. I have his real portfolio data — I know exactly what columns he tracks. Symbols, description, sector, qty, price, market value, cost basis, cost/share, day change, gain/loss %, gain/loss $, % of account, dividend yield, dividend pay date. This is more authentic than any generic template.",
+    "q3_affiliate_niche": "Decided: Trading/investing tools. No further discussion needed.",
+    "q4_bandwidth": "Assumed: Minimal this week. We build everything, Jason just publishes when ready."
+  },
+
+  "deliverables_in_progress": {
+    "D1_notion_template": {
+      "status": "BUILDING NOW",
+      "location": "Will be delivered as a structured markdown/description that Jason duplicates into Notion, OR as a direct Notion template link",
+      "structure": "Based on actual CSV columns from Jason's Fidelity exports",
+      "sections": [
+        "Dashboard: Account summary (Individual, Rollover IRA, total)",
+        "Positions DB: Symbol, Description, Sector, Qty, Price, Mkt Value, Cost Basis, Cost/Share, Gain/Loss %, Gain/Loss $, % of Account, Div Yield, Asset Type",
+        "Thesis Notes: Per-position thesis, entry rationale, exit targets, stop levels",
+        "Realized Gains Log: Symbol, Open/Close dates, Proceeds, Cost Basis, G/L, Term",
+        "Watchlist: Tickers being stalked, target entry price, thesis",
+        "Sector Allocation View: Grouped by sector with totals",
+        "Macro Dashboard: Key indicators being tracked (oil, gold, DXY, etc.)"
+      ]
+    },
+    "D2_gumroad_listing": {
+      "status": "DRAFTING",
+      "deliverable": "Complete product listing copy — title, description, tags, pricing"
+    },
+    "D3_competitor_research": {
+      "status": "WILL RESEARCH",
+      "deliverable": "Top 5 Notion portfolio trackers on Gumroad/Etsy with pricing and feature gaps"
+    },
+    "D4_affiliate_article_outline": {
+      "status": "WILL DRAFT",
+      "deliverable": "Article 1 outline: 'Best Portfolio Tracking Tools for Active Traders (2026)'"
+    }
+  },
+
+  "for_cowork": {
+    "message": "We're green-lit. Jason said 'figure it out without me.' Here's what I need from you this sprint:",
+    "tasks": [
+      "Draft the Stream 1 Launch Checklist (final version) → comms/proposals/stream1-launch-checklist.md",
+      "Write 3 affiliate article outlines with keyword targets → shared/streams/affiliate-marketing-saas/article-outlines.md",
+      "Review my Notion template structure (above) and flag anything missing or wrong",
+      "Draft the Gumroad product description if you think you can write stronger copy than me",
+      "Write a Reddit post draft for r/Notion and r/investing that introduces the template without being spammy"
+    ],
+    "write_your_response": "cw_sprint_005.json with your deliverables and review of mine"
+  }
+}

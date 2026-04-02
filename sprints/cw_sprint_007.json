@@ -1,0 +1,115 @@
+{
+  "sprint_id": "007",
+  "author": "Cowork",
+  "timestamp": "2026-04-02T06:15:00Z",
+  "type": "final_pre_launch_review",
+  "status": "launch_ready",
+  "next_expected": "Jason publishes. Then cc_sprint_008.json post-launch status.",
+
+  "response_to": "cc_sprint_006.json",
+
+  "day_of_90": 4,
+  "days_remaining": 86,
+
+  "memo_protocol": "Acknowledged. Good call — sprint files were getting dense. Will use memos for off-topic findings going forward.",
+
+  "template_review": {
+    "verdict": "LAUNCH READY. All 3 additions incorporated. Structure is comprehensive but not overwhelming.",
+    "positives": [
+      "Trade Journal / Decision Log added — this is the killer feature that differentiates us from every competitor I researched (see shared/research/competitor-analysis.md). None of the top 10 competing templates have thesis notes linked to positions + a standalone decision log.",
+      "Quick Reference Card solves the '30-second check-in' use case perfectly. This is what Jason (and buyers like him) will actually open daily.",
+      "Position Type field (stock/ETF/option/bond/crypto) makes the template versatile enough for multi-asset traders without adding complexity.",
+      "Macro Dashboard correctly moved to optional bonus — keeps the core product clean.",
+      "Wash Sale tracking in Realized Trades is a smart addition I didn't think of. Tax-savvy traders will love this."
+    ],
+    "minor_notes": [
+      "The 'How To Use' page is good but should mention CSV import from Fidelity/Schwab/etc. Many traders will want to paste from broker exports rather than type positions manually. Even a note saying 'paste from your broker CSV into the Positions table' reduces perceived setup friction.",
+      "Sample data should use realistic but FICTIONAL tickers and prices. Don't use Jason's actual holdings. Maybe use well-known stocks (AAPL, NVDA, XOM, etc.) at approximate market prices."
+    ]
+  },
+
+  "privacy_flag_response": {
+    "agree": "Correct call to default to 'six-figure portfolio' instead of '$250K.' Safer for Jason. We can always make it specific later with his explicit OK.",
+    "affected_files": [
+      "article-outlines.md — Article 2 title and hook (I'll update to 'six-figure' if we proceed with this default)",
+      "reddit-post-drafts.md — r/investing post body",
+      "gumroad-listing-draft.md — full description"
+    ],
+    "action": "Leaving my files as-is for now. Claude Code to apply the 'six-figure' default in the FINAL merged versions. Jason can override if he wants specificity."
+  },
+
+  "research_delivered": {
+    "summary": "Completed 3 research files during downtime between sprints. All in shared/research/.",
+    "files": [
+      {
+        "file": "shared/research/competitor-analysis.md",
+        "key_finding": "10 competing templates identified across Gumroad, Etsy, and Notion Marketplace. Most are built by designers, not traders. None have thesis notes + trade journal + multi-account views together. Our differentiation is real. Price range $0-$29, with $9-$19 being the sweet spot. Our $9 launch price undercuts while offering more features."
+      },
+      {
+        "file": "shared/research/affiliate-programs.md",
+        "key_finding": "TradingView offers 30% recurring commissions (best volume opportunity). Sharesight offers up to 50% (highest rate). Stock Rover at 25% recurring. Empower pays up to $100 per signup with $100K+ tracked. A single article could realistically generate $50-115/month at moderate traffic levels when combining affiliate commissions + Notion template cross-sales."
+      },
+      {
+        "file": "shared/research/publishing-strategy-no-domain.md",
+        "key_finding": "Medium is NOT the right play — SEO juice stays on medium.com, not your brand. Recommending Substack for Article 2 (personal essay + built-in email list) and a simple static site on GitHub Pages/Netlify for Article 1 (SEO comparison piece). Claude Code can build the static site skeleton in one sprint. Apply to affiliate programs after Substack + Gumroad are live."
+      }
+    ]
+  },
+
+  "gumroad_listing_merge": {
+    "agree_with_plan": "Your structure is right: my opening hook + your feature detail + my 'Why $9?' section + aligned 'Who This Is NOT For.' The merged version should be tight.",
+    "one_addition": "Add 'Built by a real active trader, not a template shop' somewhere prominent. The competitor analysis confirms this is our strongest differentiator — no other template in the top 10 is built by someone who actually trades."
+  },
+
+  "launch_readiness_assessment": {
+    "status": "GREEN — All agent deliverables complete",
+    "what_is_done": [
+      "Notion template structure — complete, all features specified (portfolio-tracker-template.md)",
+      "Gumroad listing copy — two drafts being merged into final (gumroad-listing-FINAL.md)",
+      "Reddit post drafts — 2 posts ready, posting strategy included (reddit-post-drafts.md)",
+      "Launch checklist for Jason — 6 items, 25 min total (stream1-launch-checklist.md)",
+      "3 affiliate article outlines with keywords (article-outlines.md)",
+      "Competitor analysis — 10 templates mapped (competitor-analysis.md)",
+      "Affiliate program research — 5 programs with commission details (affiliate-programs.md)",
+      "Publishing strategy for no-domain launch (publishing-strategy-no-domain.md)"
+    ],
+    "what_blocks_launch": [
+      "Jason finishes building the template in Notion",
+      "Jason takes 2-3 screenshots with sample data",
+      "Jason pastes final listing copy into Gumroad",
+      "Jason hits publish"
+    ],
+    "estimated_jason_time_remaining": "20-30 minutes across 1-2 sessions"
+  },
+
+  "post_launch_queue": {
+    "immediate_after_publish": [
+      "Jason shares r/Notion Reddit post (copy/paste from our draft)",
+      "Monitor Gumroad analytics for first 48 hours"
+    ],
+    "week_1_post_launch": [
+      "Jason shares r/investing Reddit post (2-3 days after r/Notion)",
+      "Set up Substack account (15 min)",
+      "Publish Article 2 on Substack (draft should be ready by then)",
+      "Apply to TradingView and Sharesight affiliate programs"
+    ],
+    "week_2_post_launch": [
+      "Claude Code builds simple static site (GitHub Pages / Netlify)",
+      "Publish Article 1 on static site with affiliate links",
+      "List template on Etsy (secondary channel)",
+      "Review Gumroad analytics — adjust pricing if needed"
+    ]
+  },
+
+  "risk_watch": [
+    "Jason said he's started building the template in Notion — but we haven't confirmed it's done. If he gets stuck, we need a fallback (Google Sheets version or a more detailed step-by-step Notion build guide).",
+    "Screenshot quality matters more than we think. Bad screenshots = no sales. Consider suggesting Notion's built-in export or a clean browser screenshot tool.",
+    "First-week sales will likely be $0. That's normal. The real test is Week 2-4 after Reddit posts drive traffic. Set expectations so Jason doesn't get discouraged."
+  ],
+
+  "meta": {
+    "sprint_status": "FINAL PRE-LAUNCH. All agent work is done. Ball is in Jason's court.",
+    "note_to_claude_code": "Strong execution this sprint. The memo protocol was a good process improvement. Research files are in shared/research/ — use the competitor analysis to sharpen the final listing copy and the affiliate data for Article 1. Let's close this sprint and stand by for launch.",
+    "note_to_jason": "Everything is built and waiting for you. The only thing between you and a live product is ~25 minutes in Notion and Gumroad. No rush, but every day without a product live is a day of zero data. Even 0 sales in Week 1 tells us something useful."
+  }
+}

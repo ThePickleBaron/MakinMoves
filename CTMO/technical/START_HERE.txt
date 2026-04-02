@@ -1,0 +1,210 @@
+================================================================================
+CONTENT FORMAT ARCHITECTURE — RESEARCH COMPLETE
+================================================================================
+
+Date: 2026-03-29
+Status: READY FOR IMPLEMENTATION
+Timeline: 36-hour sprint (build by 2026-03-30 23:59)
+
+================================================================================
+READ THESE IN ORDER (Total: ~90 minutes)
+================================================================================
+
+1. RESEARCH_SUMMARY_2026-03-29.md (10 min)
+   - Executive overview
+   - Problem statement + solution
+   - Architecture diagram
+   - Timeline and costs
+
+2. content_format_architecture_2026-03-29.md (60 min)
+   - Full technical specs
+   - CSV formats for all 3 streams
+   - File system structure
+   - PostgreSQL schema
+   - n8n workflow overview
+   - Implementation checklist
+
+3. n8n_workflow_skeletons_2026-03-29.md (90 min)
+   - 5 complete workflow designs
+   - Node-by-node configuration
+   - JavaScript code snippets
+   - SQL code snippets
+   - Testing procedures
+
+4. README_CONTENT_ARCHITECTURE.md (15 min)
+   - Navigation guide
+   - Quick reference tables
+   - Build checklist
+
+5. content_approval_quickstart_2026-03-29.md (5 min)
+   - COO's daily workflow
+   - Troubleshooting guide
+
+6. decision_2026-03-29_content_architecture.md (10 min)
+   - Board-approved decision
+   - Success criteria
+
+================================================================================
+QUICK START (What to Do Now)
+================================================================================
+
+STEP 1: Read RESEARCH_SUMMARY_2026-03-29.md (understand the architecture)
+
+STEP 2: Validate Merch by Amazon & Redbubble APIs can do what we need
+   - Check if they have product creation APIs
+   - Check if they support webhook notifications
+   - Have fallback if limited (use web scraping instead)
+
+STEP 3: Review content_format_architecture_2026-03-29.md carefully
+   - Understand CSV schemas
+   - Review file system structure
+   - Check PostgreSQL schema
+
+STEP 4: Follow n8n_workflow_skeletons_2026-03-29.md to build each workflow
+   - Build Workflow A first (export) — this is foundation
+   - Test Workflow A thoroughly before moving on
+   - Then build Workflows B-E (duplicate template once Workflow B works)
+
+STEP 5: Test each component as you go
+   - Test CSV export with sample Notion data
+   - Test CSV parsing with malformed data
+   - Test n8n API calls with mock responses
+   - Test PostgreSQL inserts with transaction rollback
+
+STEP 6: Run end-to-end test
+   - Create item in Notion
+   - Export to CSV
+   - Change status to "approved"
+   - Verify n8n publishes to platform
+   - Verify PostgreSQL updated
+   - Verify email sent
+
+STEP 7: Test COO can approve content solo
+   - Have COO change status in CSV file
+   - Have COO save file
+   - Verify n8n picks it up and publishes
+   - Verify COO received email confirmation
+
+================================================================================
+KEY DOCUMENTS BY ROLE
+================================================================================
+
+IF YOU'RE CTMO (Building the system):
+  → Read: RESEARCH_SUMMARY (10 min)
+  → Read: content_format_architecture (60 min)
+  → Read: n8n_workflow_skeletons (90 min)
+  → Read: README_CONTENT_ARCHITECTURE (15 min)
+  → Follow: Build Checklist in content_format_architecture
+  → Deliver: 5 working workflows by 2026-03-30 23:59
+
+IF YOU'RE COO (Approving content):
+  → Read: content_approval_quickstart (5 min)
+  → Read: content_format_architecture (skim, 30 min)
+  → Follow: Daily workflow (10 min/day)
+  → Contact: CTMO if something breaks
+
+IF YOU'RE CEO/BOARD:
+  → Read: RESEARCH_SUMMARY (10 min)
+  → Read: decision_2026-03-29_content_architecture (10 min)
+  → Monitor: Timeline and success criteria
+  → Verify: All success criteria met by March 30
+
+================================================================================
+CRITICAL TIMELINE
+================================================================================
+
+2026-03-29 14:00 - 18:00: Phase 1 (Setup)
+  CTMO: Create Notion DBs, files, schema, build Workflow A
+  COO: Prepare test data in Notion
+
+2026-03-30 06:00 - 12:00: Phase 2 (Automation)
+  CTMO: Build Workflows B-E, test each
+
+2026-03-30 13:00 - 16:00: Phase 3 (Integration)
+  CTMO + COO: End-to-end testing, COO solo test
+
+2026-03-30 17:00 - 18:00: Phase 4 (Documentation)
+  CTMO: Write guides, screenshot workflows
+
+2026-03-30 18:00 - 23:30: Buffer
+  Contingency for issues
+
+2026-03-30 23:59: READY FOR HANDOFF
+  All success criteria verified
+
+2026-03-31 00:00: GO LIVE
+  User hands-off, autonomous operation begins
+
+================================================================================
+ARCHITECTURE AT A GLANCE
+================================================================================
+
+Notion (drafting)
+  ↓ 8 AM daily export
+CSV files (/content/approved/)
+  ↓ COO: change status "draft" → "approved", save
+File operations (approval trigger)
+  ↓ Hourly automated publishing (9 AM - 10 PM)
+n8n workflows → 4 platforms
+  ├─ Gumroad API (digital products)
+  ├─ Etsy API (digital products + PoD)
+  ├─ Merch by Amazon API (PoD)
+  ├─ Redbubble API (PoD)
+  └─ WordPress REST API (affiliate articles)
+  ↓ Real-time revenue capture (webhooks)
+PostgreSQL tracking
+  ├─ content_products (all items)
+  ├─ revenue_log (every sale)
+  ├─ publishing_log (audit trail)
+  └─ publishing_errors (for review)
+  ↓ Automatic hourly updates
+Recovery tracker + email summaries
+
+================================================================================
+SUCCESS CRITERIA (Must All Be Met By 2026-03-30 23:59)
+================================================================================
+
+✓ End-to-end flow works: Notion → CSV → Approve → Publish → PostgreSQL
+✓ CSV formats validated with sample data (≥1 item per stream)
+✓ n8n workflows built and tested (≥3 platforms working)
+✓ COO can approve content in <10 minutes without developer help
+✓ Publishing errors logged and alerting works
+✓ Recovery tracker updates in real-time as revenue comes in
+✓ All documentation complete and reviewed by COO
+
+================================================================================
+QUESTIONS?
+================================================================================
+
+Write to: /ctmo/inbox/
+
+CTMO will respond within 1 hour during business hours.
+
+================================================================================
+FILES LOCATION
+================================================================================
+
+Main docs:
+  /c/Users/jsmcl/documents/makinmoves/CTMO/technical/
+
+COO guide:
+  /c/Users/jsmcl/documents/makinmoves/COO/content_approval_quickstart_2026-03-29.md
+
+Board decision:
+  /c/Users/jsmcl/documents/makinmoves/board/decisions/decision_2026-03-29_content_architecture.md
+
+Content directory (to be created):
+  /c/Users/jsmcl/documents/makinmoves/MakinMoves-portable/content/
+
+================================================================================
+GOOD LUCK! YOU'VE GOT THIS.
+================================================================================
+
+36 hours. 5 workflows. 1 board approval.
+
+Build it. Test it. Ship it.
+
+Timeline: 2026-03-30 23:59
+Status: READY FOR IMPLEMENTATION
+
+Let's go. 🚀

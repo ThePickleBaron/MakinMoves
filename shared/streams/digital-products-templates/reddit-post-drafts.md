@@ -1,0 +1,108 @@
+# Reddit Post Drafts — Template Launch
+
+**Author:** Cowork | Sprint 004
+**Status:** Drafts for Jason to copy/paste post-launch
+**Rule:** Value-first, not salesy. Reddit will destroy you if you lead with a sales pitch.
+
+---
+
+## Post 1: r/Notion
+
+**Subreddit:** r/Notion (~400K+ members)
+**Flair:** Template (if available) or Show & Tell
+**Best posting time:** Tuesday-Thursday, 9-11am EST
+
+### Title
+
+"I built a portfolio tracker template for active traders — here's what I learned"
+
+### Body
+
+I manage a stock portfolio across multiple brokerage accounts (individual + retirement), and I got tired of flipping between browser tabs and messy spreadsheets to see my full picture.
+
+So I built a Notion template that consolidates everything into one workspace:
+
+- **Positions database** with all the fields I actually use: symbol, qty, cost basis, cost/share, gain/loss, sector, dividend yield, % of account
+- **Account-level views** so I can filter by individual vs. IRA vs. rollover
+- **Thesis notes** linked to each position (why I bought, target price, stop level)
+- **Realized gains log** for tracking closed trades and tax classification
+- **Watchlist** for tickers I'm tracking but haven't entered yet
+- **Sector allocation view** to see concentration at a glance
+
+I modeled it on how I actually track ~60+ positions across accounts. The key insight was using Notion's relational databases to link thesis notes directly to positions — so when I'm reviewing a holding, I can immediately see my original rationale.
+
+A few things I'd do differently if I started over:
+- I'd build the macro dashboard first (turns out tracking the big picture keeps me from overtrading)
+- I'd add a "trade journal" section from day one (looking at wins/losses without context is useless)
+
+Happy to share the template if anyone's interested — I put it up on Gumroad [link]. And totally open to feedback on what else traders would want in something like this.
+
+---
+
+**Why this works:** Leads with the problem and solution. Shows the build process. Offers value before mentioning Gumroad. Invites feedback (Reddit loves being asked for input). Doesn't feel like an ad.
+
+---
+
+## Post 2: r/investing
+
+**Subreddit:** r/investing (~2.5M+ members)
+**Flair:** Tools & Resources or Discussion
+**Best posting time:** Monday-Wednesday, 10am-12pm EST
+
+### Title
+
+"How do you track your portfolio across multiple accounts? Here's the system I built."
+
+### Body
+
+Curious how other people handle this — I have positions spread across an individual brokerage account and a couple of retirement accounts (IRA, rollover IRA). The brokerage dashboards only show one account at a time, and I wanted a single view of everything.
+
+I ended up building a Notion-based tracking system that pulls together:
+
+- All positions across all accounts in one database
+- Cost basis and gain/loss per position AND per account
+- Sector allocation to check concentration
+- A simple thesis note for each position (entry rationale, target, stop)
+- Realized gains log for tax season
+
+It's not automated (I update it when I make trades), but it takes about 5 minutes to update after a trade and gives me way better visibility than bouncing between brokerage tabs.
+
+The thesis notes have been the most valuable part honestly — being able to look at a position and immediately see "here's why I bought this at $X and my exit plan" has saved me from a few emotional sells.
+
+For anyone interested, I cleaned it up and put it on Gumroad as a Notion template: [link]. It's $9.
+
+But mainly I'm curious — what do you all use? Spreadsheets? An app? Just your broker's dashboard? I feel like this is an underserved problem for anyone managing more than one account.
+
+---
+
+**Why this works:** Opens with a genuine question. Shares a personal solution without pushing it. Mentions the product only once, near the end, with price transparency. Ends by asking the community to share their approach — drives engagement and comments (which boost visibility).
+
+---
+
+## Post 3 (Optional): r/stocks
+
+**Subreddit:** r/stocks (~6M+ members)
+**Same format as r/investing but shorter. Only post if r/investing goes well.**
+
+### Title
+
+"Built a Notion template to track my portfolio across multiple accounts — what would you add?"
+
+### Body
+
+[Shorter version of r/investing post. Focus on asking for feature suggestions. Link to Gumroad only if someone asks.]
+
+---
+
+## Posting Rules
+
+1. **Never post to multiple subreddits on the same day** — looks like spam
+2. **Post to r/Notion first** (most receptive to template showcases)
+3. **Wait 2-3 days, then post to r/investing** (different angle, different audience)
+4. **Engage with EVERY comment** in the first 2 hours — Reddit's algorithm rewards early engagement
+5. **Do NOT edit the post to add the link later** — Reddit flags edited posts with links as spam
+6. **If the post gets traction, do NOT cross-post** — create unique content per sub
+
+---
+
+*Generated by Cowork | Sprint 004 | Day 4 of 90*
