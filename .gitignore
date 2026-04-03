@@ -23,9 +23,8 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs (system logs only, not execution logs)
 *.log
-logs/
 
 # Node (if used)
 node_modules/
