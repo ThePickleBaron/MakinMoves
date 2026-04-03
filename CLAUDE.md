@@ -95,14 +95,30 @@ legacy/
 
 ## Key Context
 - **User:** Jason — active trader, ~$250K portfolio, relocating to Richmond VA, 30 min/day available
+- **Brand:** Entropy & Divergence (entropyanddivergence.substack.com)
 - **Critical directive:** Jason has no experience with platforms (Gumroad, Notion, Etsy, etc.). Always either do it via API/browser, or write exact click-path instructions
-- **Gumroad store:** outdoorphunk.gumroad.com (j.s.mclarty@gmail.com)
-- **Products live:** Active Trader Portfolio Tracker ($9 Notion), Freelance Starter Kit ($49), Invoice Tracker ($39), AI Prompts ($24)
+- **Gumroad store:** outdoorphunk.gumroad.com (exsituinnovations@gmail.com)
+- **Products live:** Macro Conviction Thesis Tracker ($34 Notion), Google Sheets divergence tracker ($7), plus legacy products (Freelance Starter Kit, Invoice Tracker, AI Prompts)
+
+## Brand Philosophy: Entropy & Divergence
+Products are NOT generic tools. They are infrastructure for executing Jason's specific trading methodology:
+1. **Divergence Detection** — Find where institutions diverge from reality
+2. **Macro Thesis Mapping** — Understand first/second-order effects before market prices them
+3. **Conviction Positioning** — Buy undervalued companies solving emerging problems
+4. **Execution Discipline** — Infrastructure enforcing OCO stops, tiered exits, thesis documentation
+5. **Time Arbitrage** — Act on second-order effects before they're priced in
+
+**Product positioning:** "Institutions price headlines. You price the cascade."
+- NOT for generic buy-and-hold investors
+- FOR macro-driven conviction traders executing divergence bets
+- EDGE: Infrastructure + discipline + contrarian independent positioning
 
 ## Rules
 1. **Always check memos before starting work** — Jason leaves context there
 2. Never reveal Jason's specific portfolio amounts — use "six-figure portfolio"
 3. Never commit API keys, tokens, credentials
 4. All articles must be publish-ready with affiliate link placeholders
-5. All products at launch discount — raise after reviews
-6. If pulled off-task (e.g., stock analysis), drop a status memo
+5. All products must reflect Entropy & Divergence philosophy — contrarian, thesis-driven, discipline-focused
+6. Products are infrastructure for macro conviction traders, NOT generic portfolio management
+7. Product copy should be edgy, independent, contrarian (avoid corporate speak)
+8. If pulled off-task (e.g., stock analysis), drop a status memo
