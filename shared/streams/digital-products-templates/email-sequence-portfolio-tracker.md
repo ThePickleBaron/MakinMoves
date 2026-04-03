@@ -14,7 +14,7 @@
 ```
 Hi [Buyer Name],
 
-Thanks for grabbing the Active Trader Portfolio Tracker!
+Thanks for grabbing the Portfolio Tracker!
 
 I know you're busy, so I'll make this quick. You're getting three things:
 
@@ -31,7 +31,7 @@ Takes 5 minutes. Then you can start adding your actual holdings.
 Questions? Reply to this email. I answer within 24 hours.
 
 Cheers,
-The Active Trader
+Jason
 ```
 
 ---
@@ -58,7 +58,7 @@ If you're stuck, reply here and I'll walk you through it.
 If you're already crushing it — nice! Add your second stock and you'll feel the template's power.
 
 Cheers,
-The Active Trader
+Jason
 ```
 
 ---

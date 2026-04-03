@@ -9,18 +9,18 @@
 ## WEEK 1 (April 2–6)
 
 ### Wednesday, April 2 — Article 2 LIVE (Substack)
-- **Title:** "How I Track a Six-Figure Portfolio Across 3 Trading Accounts"
+- **Title:** "Multi-Account Strategy Execution: How I Manage $250K Across Active Trades"
 - **Publish time:** 6 AM ET (email goes out)
 - **Social:** Reddit (r/stocks, r/investing, r/trading) + Twitter mention
 - **Call-to-action:** "Get the template" (Gumroad link)
 - **Email to list:** Newsletter automation handles it
 
 ### Friday, April 4 — Article 1 LIVE (Substack)
-- **Title:** "Best Portfolio Tracking Tools for Active Traders (2026 Comparison)"
+- **Title:** "Data-Driven Dissection of the White House's Housing Claims — And Why I'm Short the Sector"
 - **Publish time:** 6 AM ET
 - **Social:** Reddit (same communities) + product hunt mention
-- **Call-to-action:** "Compare tools" (landing page link)
-- **Expected outcome:** 200+ reads, 10+ email signups
+- **Call-to-action:** "Understand the divergence" (link)
+- **Expected outcome:** 300+ reads, 15+ email signups
 
 ---
 
@@ -33,20 +33,20 @@
 - **Expected outcome:** Direct traffic from Substack + social
 
 ### Wednesday, April 9 — Article 4 LIVE (Substack)
-- **Title:** "How to Build a Dividend Snowball: Reinvest Everything"
+- **Title:** "The Geopolitical Hedge: How to Build a Quantitative Trading System for Chaos"
 - **Publish time:** 6 AM ET
-- **Affiliate focus:** Sharesight (dividend tracking), TradingView (screening)
-- **Social:** Twitter (thread on dividend math) + Reddit (r/dividends, r/investing)
-- **Call-to-action:** "Get the tracker" (template link)
-- **Expected outcome:** 250+ reads, 15+ signups
+- **Affiliate focus:** TradingView (volatility screening), Sharesight (tax tracking)
+- **Social:** Twitter (thread on volatility strategies) + Reddit (r/investing, r/trading)
+- **Call-to-action:** "Get the infrastructure" (template link)
+- **Expected outcome:** 350+ reads, 20+ signups
 
 ### Friday, April 11 — Article 5 LIVE (Substack)
-- **Title:** "5 Free Tools Every DIY Investor Should Know"
+- **Title:** "The Quant Toolkit: What You Actually Need to Execute in Volatility"
 - **Publish time:** 6 AM ET
-- **Affiliate focus:** TradingView, Sharesight, Notion
-- **Social:** Twitter (tool comparison thread) + Product Hunt (optional launch)
-- **Call-to-action:** "Start with TradingView" (affiliate link)
-- **Expected outcome:** 300+ reads, 20+ signups, 5+ affiliate clicks
+- **Affiliate focus:** TradingView, Sharesight, broker tools
+- **Social:** Twitter (infrastructure breakdown) + Reddit (r/stocks, r/trading)
+- **Call-to-action:** "Get started with the toolkit" (affiliate link)
+- **Expected outcome:** 300+ reads, 20+ signups, 8+ affiliate clicks
 
 ---
 

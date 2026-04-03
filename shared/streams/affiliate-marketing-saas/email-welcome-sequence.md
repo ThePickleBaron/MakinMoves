@@ -131,7 +131,7 @@ P.S. — I'm writing a full breakdown of the best portfolio tracking tools for a
 ## Setup Instructions for Jason
 
 1. Create free Beehiiv account at beehiiv.com
-2. Set up publication name (suggestion: "The Active Trader" or "Portfolio Engineering")
+2. Set up publication name (suggestion: "Entropy & Divergence" or "Portfolio Engineering")
 3. Create automation: "Welcome Sequence" with 3 emails
 4. Set triggers: Email 1 = immediate, Email 2 = 3 days after subscribe, Email 3 = 7 days after subscribe
 5. Add subscribe link to: Gumroad thank-you page, Substack bio, Reddit profile, article footers

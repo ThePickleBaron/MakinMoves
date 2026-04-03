@@ -64,7 +64,7 @@
   - Landing page: Secondary product link
 
 ### 3. Substack Newsletter
-- **URL:** https://theactivetrader.substack.com
+- **URL:** https://entropyanddivergence.substack.com
 - **Purpose:** Build audience for future monetization
 - **Where to link:**
   - Landing page: Newsletter signup
