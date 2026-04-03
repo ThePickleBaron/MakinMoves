@@ -37,9 +37,14 @@ jobs:
           python orchestrator.py
 
       - name: Commit changes
+        if: success()
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Orchestrator Bot"
-          git add -A
-          git diff --quiet && git diff --staged --quiet || git commit -m "Orchestrator: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git add shared/logs/ shared/metrics/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Orchestrator: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git push origin main
+          fi
