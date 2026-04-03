@@ -149,9 +149,14 @@ class WorkQueueManager:
     def get_ready_content(self) -> Dict[str, List[str]]:
         """Parse content queue for ready-to-post items"""
         if not self.content_queue.exists():
+            print(f"Warning: {self.content_queue} not found, skipping content posting")
             return {}
 
-        content = self.content_queue.read_text()
+        try:
+            content = self.content_queue.read_text()
+        except Exception as e:
+            print(f"Error reading content queue: {e}")
+            return {}
 
         # Parse "READY TO POST" section
         ready_section = re.search(
@@ -258,34 +263,43 @@ class Orchestrator:
 
     def execute_block(self):
         """Execute a single work block"""
-        print(f"[{datetime.now().isoformat()}] Starting block execution...")
+        try:
+            print(f"[{datetime.now().isoformat()}] Starting block execution...")
 
-        # Read work queue
-        work = self.queue.read_queue()
-        print(f"Found {len(work['tasks'])} tasks, {len(work['blocked_issues'])} blockers")
+            # Read work queue
+            work = self.queue.read_queue()
+            print(f"Found {len(work['tasks'])} tasks, {len(work['blocked_issues'])} blockers")
 
-        # Get ready content
-        content_items = self.queue.get_ready_content()
-        print(f"Found {len(content_items)} ready content items")
+            # Get ready content
+            content_items = self.queue.get_ready_content()
+            print(f"Found {len(content_items)} ready content items")
 
-        # Execute posting tasks
-        self._post_content(content_items)
+            # Execute posting tasks
+            if content_items:
+                self._post_content(content_items)
+            else:
+                print("No content ready to post")
+                self.completed.append("Content queue empty")
 
-        # Fetch Gumroad metrics
-        self._update_gumroad_metrics()
+            # Fetch Gumroad metrics
+            self._update_gumroad_metrics()
 
-        # Log execution
-        self.queue.log_execution(
-            f"Execution Block {datetime.now().strftime('%Y-%m-%d %H:%M')}",
-            self.completed,
-            self.metrics,
-            self.issues
-        )
+            # Log execution
+            self.queue.log_execution(
+                f"Execution Block {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+                self.completed,
+                self.metrics,
+                self.issues
+            )
 
-        # Update metrics file
-        self.queue.update_metrics(self.metrics)
+            # Update metrics file
+            self.queue.update_metrics(self.metrics)
 
-        print(f"Block complete. Completed {len(self.completed)} tasks.")
+            print(f"Block complete. Completed {len(self.completed)} tasks.")
+        except Exception as e:
+            print(f"Error in execute_block: {e}")
+            self.issues.append(f"Block execution error: {str(e)}")
+            raise
 
     def _post_content(self, content_items: Dict):
         """Post content to platforms"""
