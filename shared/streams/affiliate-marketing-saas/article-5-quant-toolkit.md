@@ -12,6 +12,10 @@ Here's what I use to run quantitative strategies. Nothing fancy. Nothing expensi
 
 ---
 
+**Affiliate Disclosure:** This article contains affiliate links to tools I actually use. If you sign up through these links, I earn a commission at no extra cost to you. This helps me keep writing about macro trading and quantitative execution. I only recommend tools I genuinely use myself.
+
+---
+
 ## The Core Stack (What You Actually Need)
 
 ### 1. TradingView — Volatility Data + Screeners
@@ -33,7 +37,7 @@ Here's what I use to run quantitative strategies. Nothing fancy. Nothing expensi
 
 **Real cost benefit:** Finding one profitable vol trade per month pays for the annual subscription. I find 3-4.
 
-[Get TradingView →](https://tradingview.com?aff_id=165244)
+[Get TradingView →](https://www.tradingview.com/?aff_id=165244&utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=vol-screener)
 
 ---
 
@@ -52,6 +56,8 @@ Here's what I use to run quantitative strategies. Nothing fancy. Nothing expensi
 **Price:** Free. Commissions on options are $0.65-1.00 per contract (worth it for precision execution).
 
 **Real cost benefit:** Better execution on a 10-contract trade saves you $50. Wash sale awareness saves you $500 in taxes. Both paid for by broker choice.
+
+[Open an Interactive Brokers account →](https://www.interactivebrokers.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=broker-greeks) (especially if you're serious about options and Greeks).
 
 ---
 
@@ -111,7 +117,7 @@ That one alert pays for a year of Sharesight.
 
 **Price:** Free for basic portfolio tracking. $10-20/month for tax features (worth it).
 
-[Get Sharesight →](https://sharesight.com/?ref=INSERT_CODE_HERE)
+[Try Sharesight free →](https://www.sharesight.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=tax-engine)
 
 ---
 

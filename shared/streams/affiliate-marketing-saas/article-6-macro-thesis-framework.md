@@ -12,6 +12,10 @@ Here's how.
 
 ---
 
+**Affiliate Disclosure:** This article contains affiliate links to tools I use for validating and executing macro theses. If you sign up through these links, I earn a commission at no extra cost to you. I only recommend tools I genuinely use myself.
+
+---
+
 ## The Core Framework: Macro → First Order → Second Order → Position
 
 Your edge isn't predicting the future perfectly. It's mapping the causal chain faster than the market prices it.
@@ -123,7 +127,7 @@ You've done the macro analysis. The valuation is sound. Now ask: **Is the techni
 
 **The rule:** If your macro thesis says "buy" but the chart says "sell," wait. The chart is the real-time market signal. You might be right about the macro, but you're early. Let momentum confirm before entering.
 
-If macro thesis + valuation + momentum all align? That's your entry.
+If macro thesis + valuation + momentum all align? That's your entry. Use [TradingView to visualize all three signals](https://www.tradingview.com/?aff_id=165244&utm_source=entropy&utm_medium=blog&utm_campaign=article-6-macro&utm_content=momentum-confirmation) — macro economic calendar + technical charts + fundamental screeners in one place.
 
 ---
 
@@ -132,6 +136,8 @@ If macro thesis + valuation + momentum all align? That's your entry.
 Once you've validated the macro, valuation, and momentum, how do you actually build the position?
 
 You don't buy all at once. You build in tranches with OCO (one-cancels-other) stops and targets.
+
+To set up OCO orders cleanly, you need a broker with intuitive order management. [Interactive Brokers](https://www.interactivebrokers.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-6-macro&utm_content=oco-execution) has the clearest OCO interface — one click, enter all three parameters (entry, stop, target), and the system handles the rest.
 
 ### The Setup
 

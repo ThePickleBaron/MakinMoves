@@ -12,6 +12,10 @@ Here's the mathematical case.
 
 ---
 
+**Affiliate Disclosure:** This article contains affiliate links to tax and portfolio tools I use to execute theses like this one. If you sign up through these links, I earn a commission at no extra cost to you. I only recommend tools I genuinely use myself.
+
+---
+
 ## What the White House Claims (And What's Actually True)
 
 **Claim 1: "Rents at four-year low"**
@@ -342,9 +346,9 @@ The math is set. Now we wait for the market to count — and for private credit 
 
 ---
 
-**Infrastructure for this analysis:**
-- [Portfolio Tracker: Track your positions, Greeks, thesis logic](https://outdoorphunk.gumroad.com)
-- [TradingView: Monitor sector trends, volatility in residential REITs](https://tradingview.com?aff_id=165244)
-- [Sharesight: Tax awareness for realizing losses when the thesis executes](https://sharesight.com/?ref=INSERT_CODE_HERE)
+**Infrastructure for this thesis:**
+- [Portfolio Tracker: Track positions, Greeks, thesis logic](https://outdoorphunk.gumroad.com/l/active-trader-portfolio-tracker?utm_source=entropy&utm_medium=blog&utm_campaign=article-1-housing&utm_content=portfolio-tracking)
+- [TradingView: Monitor REIT volatility, sector trends, screeners](https://www.tradingview.com/?aff_id=165244&utm_source=entropy&utm_medium=blog&utm_campaign=article-1-housing&utm_content=reit-monitoring)
+- [Sharesight: Tax-aware exit planning, wash sale tracking](https://www.sharesight.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-1-housing&utm_content=tax-planning)
 
 The edge isn't the narrative. The edge is the math. And the math is against housing.

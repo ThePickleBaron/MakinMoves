@@ -236,15 +236,194 @@ products I genuinely use and recommend.
 
 ---
 
+## PHASE 1 EXECUTION (Week 1-2, April 3-14, 2026)
+
+### Implementation Schedule
+
+**Thursday April 3 (Today):**
+- ✅ Finalize affiliate link strategy + UTM parameters
+- ⏳ Add affiliate links to all 5 articles (natural placement, no forcing)
+- ⏳ Test all links before publishing
+- ⏳ Commit changes to git
+
+**Friday April 4 (Launch):**
+- ⏳ Cross-post articles to Medium (manual, 1 article per day or batch RSS if automation works)
+- ⏳ Publish 2-3 articles to Reddit (r/options, r/thetagang, r/macroeconomics, r/investing)
+- ⏳ Submit top 2 articles to Seeking Alpha (editorial review, typically 24-48h response)
+
+**Week 2 (April 7-11):**
+- ⏳ Monitor affiliate dashboards (TradingView, Sharesight) daily
+- ⏳ Log affiliate clicks/conversions in metrics dashboard
+- ⏳ Twitter: Launch account (@EntropyDivergence), start daily posting (5-10 threads/day)
+- ⏳ Continue Reddit posting + community engagement (answer questions, build credibility)
+
+---
+
+## UTM PARAMETER MAPPING
+
+All external links use standardized UTM tracking:
+
+### Format
+```
+https://[DOMAIN]?[EXISTING_PARAMS]
+&utm_source=entropy
+&utm_medium=blog
+&utm_campaign=[article-id]
+&utm_content=[section-name]
+```
+
+### Examples
+
+**TradingView from article-5-quant-toolkit:**
+```
+https://www.tradingview.com/?aff_id=165244&utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=vol-screener
+```
+
+**Sharesight from article-5-quant-toolkit:**
+```
+https://www.sharesight.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=tax-engine
+```
+
+**Stock Rover from article-4-geopolitical:**
+```
+https://www.stockrover.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-4-geopolitical&utm_content=correlation-trading
+```
+
+### Purpose
+Track which articles and sections drive conversions. Use data to optimize future content.
+
+---
+
+## ARTICLE-BY-ARTICLE LINK PLACEMENT
+
+### article-1-housing-thesis.md
+
+**Context:** Real estate trading thesis, short position
+
+**Natural link placement (after "For Real Estate Traders" section):**
+
+1. **Sharesight** — Tax-aware exit timing
+   - Context: "To execute this thesis with precision, you need real-time tax awareness..."
+   - Link: Tax-lot tracking, wash sale prevention
+   - Position: End of article, before conclusion
+
+2. **Interactive Brokers** — Tax reporting
+   - Context: "For multi-account management and tax reporting clarity..."
+   - Link: Account management, tax data
+   - Position: End of article, before conclusion
+
+---
+
+### article-4-geopolitical-hedge.md
+
+**Context:** Volatility trading, mean reversion, correlation trading
+
+**Natural link placements:**
+
+1. **TradingView** — Volatility screening
+   - Context: "Tools you need: Volatility data (TradingView, your broker)..."
+   - Current: Generic mention
+   - Update: "TradingView's screener finds IV spikes in seconds [LINK]"
+   - Position: Strategy 1 section
+
+2. **Stock Rover** — Correlation analysis
+   - Context: "When both tech + energy are down, calculate correlation..."
+   - Link: Multi-asset correlation matrix
+   - Position: Strategy 2 section (Correlation Trading)
+
+3. **Interactive Brokers** — Options execution
+   - Context: "To execute mean reversion, you need clean Greeks..."
+   - Link: Order management, OCO structure
+   - Position: After Strategy 1 setup
+
+---
+
+### article-5-quant-toolkit.md
+
+**Status:** Already has some links, optimize and expand
+
+**Current links to optimize:**
+
+1. **TradingView** (line 36)
+   - Current: `[Get TradingView →](https://tradingview.com?aff_id=165244)`
+   - Update with UTM: `https://www.tradingview.com/?aff_id=165244&utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=vol-screener`
+
+2. **Sharesight** (after line 91)
+   - Current: Generic description, no link
+   - Add: "[Try Sharesight free →](https://www.sharesight.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=tax-engine)"
+
+3. **Interactive Brokers** (after line 48)
+   - Current: "Interactive Brokers for options..." (no link)
+   - Add: "[Learn more about IB →](https://www.interactivebrokers.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-5-toolkit&utm_content=broker-options)"
+
+---
+
+### article-6-macro-thesis-framework.md
+
+**Context:** Validation framework, momentum confirmation, OCO structure
+
+**Natural link placements:**
+
+1. **TradingView** — Technical confirmation
+   - Context: "Check momentum signals in real-time using TradingView..."
+   - Link: Economic calendar + screener
+   - Position: "Check the Momentum" section
+
+2. **Interactive Brokers** — OCO order execution
+   - Context: "Setting up OCO orders requires a broker with clean order management..."
+   - Link: Advanced order types
+   - Position: "Building Your Position" section
+
+---
+
+## AFFILIATE DISCLOSURE TEMPLATE
+
+Add to top of each article with affiliate links:
+
+```markdown
+---
+
+**Full Disclosure:** This article contains affiliate links to products and 
+services I genuinely use and recommend. If you purchase through these links, 
+I earn a commission at no extra cost to you. This helps me keep writing 
+quality content about macro trading.
+
+---
+```
+
+---
+
+## SUCCESS METRICS (Phase 1, Week 1-2)
+
+**By Friday April 11:**
+- Affiliate links live in all 5 articles ✅
+- Articles cross-posted to Medium + Reddit ✅
+- Seeking Alpha submissions sent ✅
+- Twitter account launched + daily posting started ✅
+- Baseline metrics captured:
+  - Article clicks: Track via UTM (Google Analytics or manual log)
+  - Affiliate conversions: 1-3 signups (conservative)
+  - Affiliate revenue: $50-200 (first-week baseline)
+
+**By Friday April 18 (Week 2):**
+- Twitter followers: 50-100 (from daily posting)
+- Reddit engagement: 10+ upvotes per post, community responses
+- Seeking Alpha: 1-2 articles published (pending editorial approval)
+- Affiliate revenue: $200-400/week (doubling with platform expansion)
+- Medium subscribers: 20-50 (from weekly republishing)
+
+---
+
 ## NEXT STEPS
 
 1. ✅ Confirm Sharesight + TradingView affiliate URLs (when accounts live)
 2. ✅ Research Notion affiliate program (apply if exists)
 3. ✅ Set up UTM parameters for all links
 4. ✅ Create Notion tracker for monitoring
-5. ✅ Update existing articles with affiliate links
-6. ✅ Finalize disclosures
-7. ✅ Monitor weekly: clicks, conversions, revenue
+5. ⏳ **Update existing articles with affiliate links** ← NEXT ACTION (TODAY)
+6. ⏳ **Finalize disclosures and test all links**
+7. ⏳ **Commit changes to git**
+8. ⏳ Monitor weekly: clicks, conversions, revenue
 
 ---
 

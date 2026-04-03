@@ -10,6 +10,10 @@ Here's how to build a quantitative system that profits from it.
 
 ---
 
+**Affiliate Disclosure:** This article contains affiliate links to tools I use for volatility trading. If you sign up through these links, I earn a commission at no extra cost to you. I only recommend tools I genuinely use.
+
+---
+
 ## Why We're in a Volatility Regime
 
 Let me be direct: The current administration's approach to trade policy is fundamentally unpredictable. Tariffs announced Tuesday, negotiated down Wednesday, reimposed Friday. Sanctions on Russia created energy shocks. De-risking from China created supply chain chaos.
@@ -71,9 +75,9 @@ You don't need an algorithm. You need three simple quantitative rules that actua
 **Why it fails:** If the chaos deepens (real structural change, not just noise). Manage this with position sizing + stop-loss orders.
 
 **Tools you need:**
-- Volatility data (TradingView, your broker)
-- Options chain (any broker)
-- [Track positions + calculations: Portfolio Tracker template](https://outdoorphunk.gumroad.com)
+- **Volatility data:** [TradingView's IV screener](https://www.tradingview.com/?aff_id=165244&utm_source=entropy&utm_medium=blog&utm_campaign=article-4-geopolitical&utm_content=vol-screener) (finds IV spikes in seconds)
+- **Options chain:** Any broker (Fidelity, Interactive Brokers, your current setup)
+- **Position tracking:** [Portfolio Tracker template](https://outdoorphunk.gumroad.com/l/active-trader-portfolio-tracker?utm_source=entropy&utm_medium=blog&utm_campaign=article-4-geopolitical)
 
 ### Strategy 2: Correlation Trading (Sectors + Hedges)
 
@@ -106,8 +110,9 @@ In chaotic markets, correlations break down.
 **Why it works:** Markets misprice relationships during shock events.
 
 **Tools you need:**
-- Correlation calculator (Excel or Python, takes 10 minutes)
-- Position tracker (know your hedge ratio)
+- **Correlation analysis:** [Stock Rover's correlation matrix](https://www.stockrover.com/?utm_source=entropy&utm_medium=blog&utm_campaign=article-4-geopolitical&utm_content=correlation-matrix) shows correlated/uncorrelated pairs at a glance
+- **Correlation calculator:** Excel or Python (takes 10 minutes for manual)
+- **Position tracker:** Know your hedge ratio across all accounts
 - [Advanced portfolio tracker for multi-leg positions](https://outdoorphunk.gumroad.com)
 
 ### Strategy 3: Earnings Arbitrage (Volatility + Timing)
