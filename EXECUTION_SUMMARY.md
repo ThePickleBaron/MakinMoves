@@ -19,13 +19,12 @@
 | Twitter | 4 threads (20 tweets) | ✅ Ready | twitter_2026-04-04.md |
 | Twitter | 3 quick-takes (hot takes) | ✅ Ready | twitter_quicktake_2026-04-04.md |
 | Reddit | 3 posts (r/options, r/thetagang, r/macro) | ✅ Ready | reddit_2026-04-04.md |
-| LinkedIn | 1 housing analysis article | ✅ Ready | content_repurposing_housing_20260404.md |
 | Medium | 1 housing analysis article | ✅ Ready | content_repurposing_housing_20260404.md |
 | Seeking Alpha | 2 article submissions | ✅ Ready | seekingalpha_submission_housing.md + macro_framework.md |
 | Email | 3-email welcome sequence | ✅ Ready | email_welcome_2026-04-04.md |
 | Email | 5-email nurture outline | ✅ Ready | email_nurture_outline_2026-04-04.md |
 
-**Expected reach:** 5K-10K impressions Day 1, 20K-50K by Day 7
+**Expected reach:** 3K-8K impressions Day 1, 15K-40K by Day 7 (Twitter + Reddit primary, Medium + Seeking Alpha secondary)
 
 ---
 

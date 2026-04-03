@@ -114,27 +114,7 @@
 
 ---
 
-## PHASE 4: LINKEDIN POST (5 min)
-
-### Step 1: Post Housing Short Analysis
-**File:** `shared/content/content_repurposing_housing_20260404.md` (PLATFORM 1 section)
-
-**Execution:**
-1. Go to linkedin.com
-2. Click "Start a post"
-3. Copy article body (professional version)
-4. Add image: Chart showing BLS vs. Apartment List divergence
-5. Add link at end: Seeking Alpha article or Substack
-6. Add hashtags: #MacroTrading #RealEstate #InvestmentThesis #DataDrivenInvesting
-7. Click "Post"
-8. Screenshot posted article
-
-**Expected:** 500-2K impressions, 10-20 new subscribers, $10-30 affiliate revenue  
-**Time:** 5 minutes
-
----
-
-## PHASE 5: MEDIUM ARTICLE (5 min)
+## PHASE 4: MEDIUM ARTICLE (5 min)
 
 ### Step 1: Publish Housing Analysis Article
 **File:** `shared/content/content_repurposing_housing_20260404.md` (PLATFORM 3 section)
@@ -155,7 +135,7 @@
 
 ---
 
-## PHASE 6: SEEKING ALPHA SUBMISSIONS (10 min)
+## PHASE 5: SEEKING ALPHA SUBMISSIONS (10 min)
 
 ### Step 1: Submit Housing Article
 **File:** `shared/content/seekingalpha_submission_housing.md`
@@ -195,7 +175,7 @@
 
 ---
 
-## PHASE 7: ENGAGEMENT & FOLLOW-UP (10 min)
+## PHASE 6: ENGAGEMENT & FOLLOW-UP (10 min)
 
 ### Step 1: Twitter Engagement
 **Execution:**
@@ -221,7 +201,7 @@
 
 ---
 
-## PHASE 8: METRICS LOGGING (10 min)
+## PHASE 7: METRICS LOGGING (10 min)
 
 ### Step 1: Create Daily Metrics Snapshot
 **File to create:** `shared/metrics/DAILY_METRICS_2026-04-04.md`
@@ -291,12 +271,11 @@
 | Twitter posts | 10 min | ⏳ NEXT |
 | Reddit posts | 10 min | ⏳ NEXT |
 | Email send | 5 min | ⏳ NEXT |
-| LinkedIn | 5 min | ⏳ NEXT |
 | Medium | 5 min | ⏳ NEXT |
 | Seeking Alpha | 10 min | ⏳ NEXT |
 | Engagement | 10 min | ⏳ NEXT |
 | Metrics logging | 10 min | ⏳ NEXT |
-| **TOTAL** | **65 min** | — |
+| **TOTAL** | **60 min** | — |
 
 ---
 
@@ -309,11 +288,11 @@
 - ✅ All screenshots captured
 
 **Metrics baseline:**
-- ✅ Twitter: 5K+ impressions, 50-100 clicks
+- ✅ Twitter: 3K-5K impressions, 50-100 clicks
 - ✅ Reddit: 50+ upvotes, 10-20 comments
 - ✅ Medium: 100+ views
-- ✅ LinkedIn: 500+ impressions
 - ✅ Email: 20-30% open rate
+- ✅ Seeking Alpha: 2 articles submitted (pending review)
 
 **Revenue:**
 - ✅ $50-150 affiliate revenue logged

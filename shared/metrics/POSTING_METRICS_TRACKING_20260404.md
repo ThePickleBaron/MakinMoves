@@ -108,23 +108,6 @@
 
 ---
 
-## LINKEDIN TRACKING
-
-### Article: "Housing Recovery Narrative Is Wrong"
-- **Posted:** [timestamp]
-- **Article URL:** [link]
-- **Metrics (24h):**
-  - Impressions: [count]
-  - Clicks: [count]
-  - Likes: [count]
-  - Comments: [count]
-  - Shares: [count]
-  - New followers: [count]
-  - Affiliate clicks: [count]
-  - Revenue: $[amount]
-
----
-
 ## MEDIUM TRACKING
 
 ### Article: "Housing Recovery Narrative Is Wrong"
@@ -194,11 +177,13 @@
 |------|--------|------|--------|-------------|---------|-------|
 | 2026-04-04 | Twitter (Thread 1) | [link] | — | — | $0 | Tracking |
 | 2026-04-04 | Twitter (Thread 2) | [link] | — | — | $0 | Tracking |
+| 2026-04-04 | Twitter (Quick-take) | [link] | — | — | $0 | Tracking |
 | 2026-04-04 | Reddit (r/options) | [link] | — | — | $0 | Tracking |
 | 2026-04-04 | Reddit (r/thetagang) | [link] | — | — | $0 | Tracking |
-| 2026-04-04 | LinkedIn | [link] | — | — | $0 | Tracking |
+| 2026-04-04 | Reddit (r/macro) | [link] | — | — | $0 | Tracking |
 | 2026-04-04 | Medium | [link] | — | — | $0 | Tracking |
 | 2026-04-04 | Email | [newsletter] | — | — | $0 | Tracking |
+| 2026-04-04 | Seeking Alpha | [submissions] | — | — | $0 | Pending review |
 | **TOTALS** | — | — | **0** | **0** | **$0** | **Baseline** |
 
 **Update this sheet daily. Track which sources convert best and optimize future posts based on ROI.**
