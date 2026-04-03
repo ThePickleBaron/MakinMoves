@@ -11,23 +11,25 @@
 ### 1. Sharesight
 - **Commission:** 50% recurring (for subscription tiers)
 - **Type:** SaaS affiliate (user signup → trial → paid subscription)
-- **Status:** ✅ Applied (or will apply when Substack live)
+- **Account:** exsituinnovations@gmail.com
+- **Status:** ✅ Account confirmed (April 2, 2026)
 - **Where to link:**
   - Article 4: "Sharesight: The dividend tracker that changed my life" [LINK]
   - Article 5: "Sharesight: The tax organizer" [LINK]
   - Notion template quick reference: "Track your snowball" [LINK]
   - Email sequence: Day 3 email (automation tip) [LINK]
-- **Link format:** `https://sharesight.com/?ref=[YOUR_CODE]` or provided affiliate URL
+- **Link format:** `https://sharesight.com/?ref=[AFFILIATE_CODE]` — get code from Sharesight account
 
 ### 2. TradingView
 - **Commission:** Referral (user signup, variable $ per signup)
 - **Type:** Freemium SaaS (free → paid tiers)
-- **Status:** ✅ Applied (or will apply when Substack live)
+- **Affiliate ID:** 165244
+- **Status:** ✅ Confirmed (April 2, 2026)
 - **Where to link:**
   - Article 5: "TradingView: The charting king" [LINK]
   - Article 4: "Track via TradingView screener" [LINK]
   - Notion template quick reference: "Where I screen" [LINK]
-- **Link format:** `https://tradingview.com?aff_id=[YOUR_ID]` or provided affiliate URL
+- **Link format:** `https://tradingview.com?aff_id=165244`
 
 ### 3. Notion
 - **Commission:** Depends on program (if exists)
@@ -53,8 +55,9 @@
   - Email signature: Optional
 
 ### 2. Etsy Store
-- **URL:** https://www.etsy.com/shop/[YOUR_SHOP]
+- **URL:** https://www.etsy.com/shop/ExSituInnovations?ref=seller-platform-mcnav
 - **Products:** Portfolio Tracker (Notion), potentially Google Sheets
+- **Status:** ✅ Confirmed (April 2, 2026)
 - **Where to link:**
   - Articles: Secondary CTA ("Also available on Etsy")
   - Newsletter: "Get it on Etsy" option
