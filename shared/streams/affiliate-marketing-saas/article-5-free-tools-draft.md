@@ -42,8 +42,7 @@ That $400 came from a tool that costs zero dollars and a 30-second alert setup.
 - Day traders (real-time data is delayed on free tier)
 - Scalpers (need sub-second execution)
 
-**Website:** tradingview.com  
-[TradingView affiliate]
+**Website:** [Open TradingView →](https://tradingview.com?aff_id=165244)
 
 ---
 
@@ -120,8 +119,7 @@ That one alert paid for a year of Sharesight.
 - New investors (not worth the money yet)
 - Buy-and-hold people (less complexity)
 
-**Website:** sharesight.com  
-[Sharesight affiliate — 50% commission]
+**Website:** [Try Sharesight →](https://sharesight.com/?ref=INSERT_CODE_HERE)
 
 ---
 

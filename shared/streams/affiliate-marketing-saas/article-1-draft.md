@@ -31,7 +31,7 @@ Most portfolio trackers fail active traders because they were built for someone 
 
 ### 1. TradingView — Best for Charting + Tracking Combo
 
-[AFFILIATE LINK: TradingView]
+[Start your free TradingView account →](https://tradingview.com?aff_id=165244)
 
 If you live in charts, TradingView is probably already open on your screen. It's the dominant platform for technical analysis, and it does offer portfolio tracking — but it's a secondary feature, not the main event.
 
@@ -63,7 +63,7 @@ Stock Rover is the tool nobody talks about but every serious investor should kno
 
 ### 3. Sharesight — Best for Tax Reporting + Dividends
 
-[AFFILIATE LINK: Sharesight]
+[Try Sharesight free →](https://sharesight.com/?ref=INSERT_CODE_HERE)
 
 Sharesight is the portfolio tracker that accountants wish every client used. It's specifically designed for investors who care about tax-efficient trading and dividend income tracking.
 

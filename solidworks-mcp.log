@@ -1,3 +1,6 @@
 {"level":"info","message":"Resources registered","timestamp":"2026-04-02 17:13:03","types":["design-table"]}
 {"byStatus":{},"byType":{},"level":"info","message":"State store loaded","timestamp":"2026-04-02 17:13:03","totalResources":0}
 {"features":{"macroRecording":true,"pdmIntegration":false,"sqlIntegration":false},"level":"info","message":"SolidWorks MCP Server started","timestamp":"2026-04-02 17:13:03","version":"3.0.9"}
+{"level":"info","message":"Resources registered","timestamp":"2026-04-02 21:15:18","types":["design-table"]}
+{"byStatus":{},"byType":{},"level":"info","message":"State store loaded","timestamp":"2026-04-02 21:15:18","totalResources":0}
+{"features":{"macroRecording":true,"pdmIntegration":false,"sqlIntegration":false},"level":"info","message":"SolidWorks MCP Server started","timestamp":"2026-04-02 21:15:18","version":"3.0.9"}

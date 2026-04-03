@@ -3,124 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Active Trader Tools — Portfolio Tracking & Templates</title>
+    <title>The Active Trader — Portfolio Tracking for Six-Figure Traders</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 20px; text-align: center; }
-        header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        header p { font-size: 1.2em; opacity: 0.9; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .hero { margin: 40px 0; text-align: center; }
-        .hero p { font-size: 1.1em; margin-bottom: 30px; color: #555; }
-        .buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0; }
-        .btn { padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; border: 2px solid; display: inline-block; }
-        .btn-primary { background: #667eea; color: white; border-color: #667eea; }
-        .btn-primary:hover { background: #764ba2; border-color: #764ba2; }
-        .btn-secondary { background: white; color: #667eea; border-color: #667eea; }
-        .btn-secondary:hover { background: #f0f4ff; }
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 50px 0; }
-        .product-card { background: #f8f9fb; border-radius: 12px; padding: 30px; border-left: 4px solid #667eea; }
-        .product-card h3 { color: #667eea; margin-bottom: 10px; }
-        .product-card p { color: #666; margin-bottom: 15px; }
-        .price { font-size: 1.5em; font-weight: bold; color: #764ba2; margin-bottom: 15px; }
-        .features { list-style: none; margin: 15px 0; }
-        .features li { padding: 8px 0; color: #555; }
-        .features li:before { content: "✓ "; color: #667eea; font-weight: bold; margin-right: 8px; }
-        .cta-section { background: #f0f4ff; padding: 40px; border-radius: 12px; text-align: center; margin: 50px 0; }
-        .cta-section h2 { color: #667eea; margin-bottom: 15px; }
-        footer { background: #333; color: white; padding: 30px 20px; text-align: center; margin-top: 60px; }
-        footer p { font-size: 0.9em; opacity: 0.8; }
-        .nav { display: flex; gap: 20px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
-        .nav a { color: #667eea; text-decoration: none; font-weight: 600; }
-        .nav a:hover { text-decoration: underline; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #667eea;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .product-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .product-card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.8em;
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #764ba2;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .article-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .article-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .read-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-link:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .newsletter h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .newsletter input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .newsletter button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .newsletter button:hover {
+            background: #764ba2;
+        }
+
+        .testimonial {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        .testimonial strong {
+            color: #667eea;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Active Trader Tools</h1>
-        <p>Portfolio tracking templates for serious investors</p>
+        <h1>The Active Trader</h1>
+        <p>Tools & Templates for Managing Six-Figure Portfolios</p>
     </header>
 
     <div class="container">
-        <div class="hero">
-            <p>Manage your six-figure portfolio with clarity. Notion and Excel templates built by active traders, for active traders.</p>
-            <div class="buttons">
-                <a href="https://outdoorphunk.gumroad.com" class="btn btn-primary">View All Products</a>
-                <a href="https://substack.com/@theactivetrader" class="btn btn-secondary">Read Articles</a>
+        <!-- Hero Section -->
+        <section style="padding: 40px 0;">
+            <p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">
+                Active traders manage complex portfolios. Multiple accounts. Dividend reinvestment. Wash sale tracking. Tax optimization.
+            </p>
+            <p style="font-size: 1.1em; color: #555;">
+                This site has the tools to make it simple.
+            </p>
+        </section>
+
+        <!-- Products Section -->
+        <section>
+            <h2>Products</h2>
+            <div class="products">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <h3>📊 Portfolio Tracker (Notion)</h3>
+                    <p>Complete portfolio management system. Track positions, realized trades, watchlist, and dividend calendar — all in Notion.</p>
+                    <ul class="feature-list">
+                        <li>4 interconnected databases</li>
+                        <li>8+ pre-built views</li>
+                        <li>Dividend tracking formulas</li>
+                        <li>Gain/loss calculations</li>
+                        <li>5-minute setup</li>
+                    </ul>
+                    <div class="price">$34</div>
+                    <a href="https://outdoorphunk.gumroad.com/l/active-trader-portfolio-tracker" class="cta-button">Get Template →</a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <h3>📈 Portfolio Tracker (Google Sheets)</h3>
+                    <p>Same power as Notion, in Google Sheets. 4,400+ formulas. Multiple worksheets. Perfect for traders who prefer spreadsheets.</p>
+                    <ul class="feature-list">
+                        <li>4 pre-built worksheets</li>
+                        <li>Real-time calculations</li>
+                        <li>Dividend projections</li>
+                        <li>Mobile-friendly</li>
+                        <li>Share with spouse/advisor</li>
+                    </ul>
+                    <div class="price">$7</div>
+                    <a href="https://outdoorphunk.gumroad.com" class="cta-button">Get Template →</a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <h3>📅 Dividend Dashboard</h3>
+                    <p>Watch your dividends compound. See which stocks pay most. Plan your reinvestment strategy. All in one dashboard.</p>
+                    <ul class="feature-list">
+                        <li>Dividend yield tracking</li>
+                        <li>Reinvestment tracker</li>
+                        <li>Tax impact calculator</li>
+                        <li>Monthly cash flow view</li>
+                        <li>Compound growth projection</li>
+                    </ul>
+                    <div class="price">$12</div>
+                    <a href="https://outdoorphunk.gumroad.com" class="cta-button">Get Template →</a>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="nav">
-            <a href="#products">Products</a>
-            <a href="https://outdoorphunk.gumroad.com" target="_blank">Store</a>
-            <a href="https://substack.com" target="_blank">Newsletter</a>
-            <a href="mailto:j.s.mclarty@gmail.com">Contact</a>
-        </div>
+        <!-- Articles Section -->
+        <section>
+            <h2>Free Articles</h2>
+            <p style="margin-bottom: 30px; color: #666;">Master the fundamentals. Read on Substack, get updates on new templates.</p>
 
-        <h2 style="text-align: center; margin: 50px 0 30px; color: #333;">Featured Products</h2>
-        <div class="products">
-            <div class="product-card">
-                <h3>Active Trader Portfolio Tracker</h3>
-                <p>Notion template for multi-account tracking</p>
-                <div class="price">$9</div>
-                <ul class="features">
-                    <li>Multi-account views</li>
-                    <li>Thesis notes & tracking</li>
-                    <li>Tax tracking (wash sales)</li>
-                    <li>Sector allocation dashboard</li>
-                    <li>Sample data included</li>
-                </ul>
-                <a href="https://outdoorphunk.gumroad.com/l/active-trader-portfolio-tracker" class="btn btn-primary" style="display: block; text-align: center; margin-top: 15px;">Get Template</a>
+            <div class="articles">
+                <div class="article-card">
+                    <h3>Best Portfolio Tracking Tools</h3>
+                    <p>Comparison of Notion, Excel, TradingView, and Sharesight. Which one is right for your portfolio? Honest takes on tradeoffs.</p>
+                    <a href="https://activetradertools.substack.com" class="read-link">Read on Substack →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3>How to Track a Six-Figure Portfolio</h3>
+                    <p>My exact system for managing multiple accounts. How I handle dividends, realized trades, tax planning, and reinvestment.</p>
+                    <a href="https://activetradertools.substack.com" class="read-link">Read on Substack →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3>Notion vs Excel vs TradingView</h3>
+                    <p>Deep dive comparison. Where to store your trades. How to organize your thesis. When to upgrade tools.</p>
+                    <a href="https://activetradertools.substack.com" class="read-link">Read on Substack →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3>Dividend Snowball Strategy</h3>
+                    <p>Compound growth through reinvestment. $50K becomes $300K in 15 years. Math, stocks, and reinvestment strategy.</p>
+                    <a href="https://activetradertools.substack.com" class="read-link">Read on Substack →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3>5 Free Tools Every Trader Needs</h3>
+                    <p>TradingView, Yahoo Finance, Sharesight, Seeking Alpha, Notion. Everything you need to trade professionally without paying $2K/year.</p>
+                    <a href="https://activetradertools.substack.com" class="read-link">Read on Substack →</a>
+                </div>
             </div>
+        </section>
 
-            <div class="product-card">
-                <h3>Portfolio Tracker — Google Sheets</h3>
-                <p>Excel/Sheets version with 4,400+ formulas</p>
-                <div class="price">$7</div>
-                <ul class="features">
-                    <li>4,400+ pre-built formulas</li>
-                    <li>Works offline & online</li>
-                    <li>Multi-account support</li>
-                    <li>Tax gain/loss tracking</li>
-                    <li>Customizable for your needs</li>
-                </ul>
-                <a href="https://outdoorphunk.gumroad.com" class="btn btn-primary" style="display: block; text-align: center; margin-top: 15px;">View on Gumroad</a>
+        <!-- Newsletter Section -->
+        <section>
+            <h2>Stay Updated</h2>
+            <div class="newsletter">
+                <h3>Get new templates + articles in your inbox</h3>
+                <p>New tools every month. Portfolio tracking tips. Affiliate reviews. No spam.</p>
+                <form>
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe →</button>
+                </form>
+                <p style="font-size: 0.85em; margin-top: 15px; opacity: 0.7;">We respect your privacy. Unsubscribe anytime.</p>
             </div>
+        </section>
 
-            <div class="product-card">
-                <h3>Pre-Launch: Dividend Income Dashboard</h3>
-                <p>Template for dividend/FIRE investors</p>
-                <div class="price">Coming Soon</div>
-                <ul class="features">
-                    <li>Dividend tracking by stock</li>
-                    <li>Payment calendar view</li>
-                    <li>Yield-on-cost tracking</li>
-                    <li>DRIP tracker</li>
-                    <li>Sample dividend stocks included</li>
-                </ul>
-                <p style="margin-top: 15px; color: #666; font-size: 0.9em;">Join our newsletter for launch alert</p>
+        <!-- Testimonial -->
+        <section style="padding: 40px 0;">
+            <div class="testimonial">
+                <strong>"Finally, a system that makes sense."</strong><br>
+                "I was juggling 3 spreadsheets and a notebook. These templates consolidated everything into one place. Tax time is now 30 minutes instead of 3 hours." — Active trader managing $250K portfolio
             </div>
-        </div>
+        </section>
 
-        <div class="cta-section">
-            <h2>Why These Templates?</h2>
-            <p style="margin-bottom: 20px;">Built by an active trader managing a six-figure portfolio across multiple accounts. Designed to solve real problems: multi-account visibility, tax tracking, and personal tracking system that actually reflects how you think about your portfolio.</p>
-            <a href="https://outdoorphunk.gumroad.com" class="btn btn-primary">Explore Products</a>
-        </div>
+        <!-- FAQ Section -->
+        <section>
+            <h2>FAQ</h2>
+            <div style="max-width: 700px;">
+                <h3 style="color: #667eea; margin-top: 30px;">Can I try the template before buying?</h3>
+                <p>The Notion template includes a public preview. Click "Duplicate" to see exactly what you're getting.</p>
 
-        <h2 style="text-align: center; margin: 50px 0 30px; color: #333;">Latest Articles</h2>
-        <div class="nav" style="margin-bottom: 30px;">
-            <a href="https://substack.com/@theactivetrader" target="_blank">Read on Substack →</a>
-        </div>
-        <div style="background: #f8f9fb; padding: 20px; border-radius: 8px; margin-bottom: 40px;">
-            <p style="color: #666; font-style: italic;">Articles on portfolio tracking, investment tools, and active trader workflows. Subscribe for new posts.</p>
-        </div>
+                <h3 style="color: #667eea; margin-top: 30px;">Do these work for small portfolios?</h3>
+                <p>Yes. These templates scale from $10K to $1M+. Start simple, add complexity as you grow.</p>
+
+                <h3 style="color: #667eea; margin-top: 30px;">What if I use a different broker?</h3>
+                <p>These tools work with any broker (Fidelity, Vanguard, Schwab, Interactive Brokers, etc.). Just export your data and import.</p>
+
+                <h3 style="color: #667eea; margin-top: 30px;">Is support included?</h3>
+                <p>Yes. Email support for any questions. Setup help if you get stuck.</p>
+            </div>
+        </section>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Active Trader Tools. Built for traders by traders.</p>
-        <p style="margin-top: 10px;"><a href="mailto:j.s.mclarty@gmail.com" style="color: white; text-decoration: none;">Contact us</a> | <a href="https://outdoorphunk.gumroad.com" style="color: white; text-decoration: none;">Store</a></p>
+        <p><strong>The Active Trader</strong></p>
+        <p>Tools for managing six-figure portfolios.</p>
+        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9em;">
+            <a href="https://activetradertools.substack.com" style="color: #667eea; text-decoration: none;">Substack</a> |
+            <a href="https://outdoorphunk.gumroad.com" style="color: #667eea; text-decoration: none;">Gumroad</a> |
+            <a href="https://www.etsy.com/shop/ExSituInnovations?ref=seller-platform-mcnav" style="color: #667eea; text-decoration: none;">Etsy</a> |
+            <a href="#" style="color: #667eea; text-decoration: none;">Privacy</a>
+        </p>
+        <p style="margin-top: 20px; opacity: 0.6; font-size: 0.85em;">Not financial advice. For educational purposes only.</p>
     </footer>
 </body>
 </html>

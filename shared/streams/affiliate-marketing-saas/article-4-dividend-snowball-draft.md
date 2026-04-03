@@ -161,7 +161,7 @@ Cons: Complex. Requires more attention.
 
 Price: Free for basic, $10–20/month for full features. Worth it.
 
-Affiliate: [SHARESIGHT LINK]
+[Start tracking with Sharesight →](https://sharesight.com/?ref=INSERT_CODE_HERE)
 
 **TradingView** — Where I screen for new dividend stocks. Filter by:
 - Dividend yield (min 2%, max 5%)
@@ -170,7 +170,7 @@ Affiliate: [SHARESIGHT LINK]
 
 Free screener. Takes 10 minutes to find a new candidate.
 
-Affiliate: [TRADINGVIEW LINK]
+[Access the TradingView screener →](https://tradingview.com?aff_id=165244)
 
 **Spreadsheet** — If you're old school, a simple sheet works:
 - Date, Stock, Dividend amount, New shares bought, New principal
