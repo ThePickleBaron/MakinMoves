@@ -329,48 +329,96 @@ Agents return findings → Save to `shared/logs/AGENT_RESULTS.md` → Incorporat
 
 ---
 
-## SURVEY WORK (Fallback Revenue)
+## REVENUE STACKING (Idle Time Optimization)
 
-If tasks get blocked or delayed, switch to survey work for immediate revenue:
+**Mindset:** Every second = opportunity. Surveys are fallback only. Primary idle work = smart revenue stacking.
 
-### Survey Platforms (Pre-vetted)
+**Strategy:** 4-tier revenue stacking system with revenue targets of $200-500/day during gaps (vs. $50-100/day from surveys alone).
 
-**1. Respondent.io**
-- Time per survey: 15-30 min
-- Payment: $5-50 per survey
-- Availability: 5-10 surveys/day
-- Total potential: $100-200/day
+### TIER 1: Instant Revenue (5-15 min gaps)
+- Affiliate link optimization ($10-20/gap)
+- Email A/B test setup ($5-15/gap)
+- Twitter quick-take post ($10-30/gap)
+- Social media micro-content ($20-50/week)
+- **Target:** $20-50 per gap, $100-250/day from Tier 1
 
-**2. UserTesting.com**
-- Time per test: 10-20 min
-- Payment: $10 per test
-- Availability: 2-5 tests/day
-- Total potential: $20-50/day
+### TIER 2: High-Value Quick Work (15-30 min gaps)
+- Partner outreach pitches ($10-50/week per pitch)
+- Affiliate program applications ($50-200/month per program)
+- Email list cross-promotion ($500-1K/month at scale)
+- Podcast/YouTube guest pitches ($50-200/month)
+- **Target:** $50-150 per gap, $100-300/day from Tier 2
 
-**3. Swagbucks**
-- Time per task: 5-15 min
-- Payment: $1-10 per task
-- Availability: 10-20 tasks/day
-- Total potential: $50-100/day
+### TIER 3: Medium-Effort Wins (30-45 min)
+- Content repurposing (Twitter → LinkedIn → Email) ($20-50/repurpose)
+- Lead magnet creation ($50-100/month per magnet)
+- Product bundling/upsells ($30-80/week)
+- Article → YouTube script conversion ($50-150/week at scale)
+- **Target:** $50-150 per gap, $150-300/day from Tier 3
 
-**4. Appen**
-- Time per task: 10-30 min
-- Payment: $6-15/hour
-- Availability: Projects available daily
-- Total potential: $50-120/day
+### TIER 4: Survey Fallback (Only if Tier 1-3 exhausted)
+**4 platforms available:**
+- Respondent.io: $5-50/survey (15-30 min)
+- UserTesting.com: $10/test (10-20 min)
+- Swagbucks: $1-10/task (5-15 min)
+- Appen: $6-15/hour (10-30 min)
+- **Target:** $50-150/gap maximum, ONLY after Tier 1-3 attempted
 
-### Survey Execution Protocol
+### Revenue Stacking Execution Protocol
 
-**If blocked for 20+ minutes:**
-1. Read `SURVEY_WORK_QUEUE.md` (pre-populated with active surveys)
-2. Execute 1-2 surveys (20-30 min total)
-3. Log completion in metrics file
-4. Resume primary work
-5. Repeat if blocked again
+**If blocked for 5-30 minutes:**
+1. Read `REVENUE_STACKING_IDLE_TIME.md` (priority tier list)
+2. Pick highest-value activity that fits time available
+3. Execute immediately (no context switching)
+4. Log in `shared/logs/REVENUE_STACKING_LOG.md`
+5. Resume primary work when ready
 
-**Target:** 1-2 surveys per block if blocked = $50-100/day minimum floor
+**If blocked for 30-60 minutes:**
+1. Execute 1-2 Tier 2-3 activities (complete modules)
+2. Do NOT default to surveys (surveys = lazy option)
+3. Pick: Partner outreach, lead magnet, content repurposing
+4. Log results + expected revenue
 
-**File:** `shared/queue/SURVEY_WORK_QUEUE.md` (maintained daily)
+**If all primary work complete:**
+1. Pick 2-3 Tier 2 activities to execute
+2. Run in parallel with next content block
+3. Always queue 3-5 activities ahead
+4. NEVER sit idle waiting for next block
+
+**Surveys only if:**
+- All Tier 1-3 activities exhausted
+- Time gap exists that no other activity fits
+- Primary work is truly blocked and can't pivot
+- Even then: pick 1-2 max, then resume recovery work
+
+**File:** `shared/queue/REVENUE_STACKING_IDLE_TIME.md` (detailed tier breakdown, priority order)
+
+### Daily Revenue Targets (Optimized)
+
+| Source | Time | Revenue | Priority |
+|--------|------|---------|----------|
+| Affiliate optimization | 10 min | $10-20 | #1 |
+| Email A/B testing | 10 min | $5-15 | #1 |
+| Social quick posts | 5 min | $10-30 | #1 |
+| Content repurposing | 20 min | $20-50 | #3 |
+| Partner outreach | 10 min | $10-50/wk | #2 |
+| Lead magnet design | 30 min | $50-100/mo | #3 |
+| Product upsells | 15 min | $10-30 | #3 |
+| Surveys (fallback only) | 30 min | $50-100 | #4 |
+| **Total per day (70-90 min)** | — | **$100-250+** | — |
+
+**Per week:** $520-1,100+ from idle time  
+**Per month:** $2,300-5,200+ from idle time (6-10x survey-only approach)
+
+### The Mindset
+
+Every 30 seconds of idle = $1-5 potential.  
+Every 15 minutes of blocked time = $30-150 potential.  
+Every hour of slowdown = $300-500 potential.
+
+This is how $50K recovery becomes $100K+.
+
+**No gap is small. No second is wasted.**
 
 ---
 

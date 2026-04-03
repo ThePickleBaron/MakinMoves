@@ -202,29 +202,48 @@ Action taken: Applied pattern to Reddit post structure in shared/content/reddit_
 
 ---
 
-## FALLBACK WORK (If Blocked >20 min)
+## FALLBACK WORK (If Blocked >5 min)
 
-If primary work is blocked:
+**Mindset:** Every gap = revenue. Optimize for money, not just time.
 
-1. **Document the blocker** in work queue:
-   ```markdown
-   ## BLOCKING ISSUES
-   - Issue: Waiting for Browser instance to create Twitter account (needed for tweet content)
-   - Status: In progress (expected by 10:00 AM)
-   - Resolution: Will pivot to email content instead
-   ```
+**Priority: Revenue Stacking > Surveys > Internal tools**
 
-2. **Switch to survey work:**
-   - Read `shared/queue/SURVEY_WORK_QUEUE.md`
-   - Pick 1-2 surveys (~25 min total)
-   - Log in daily metrics
-   - Resume primary work when blocker resolves
+### If blocked for 5-30 minutes:
 
-3. **Alternative fallback:**
-   - Build internal tools (content templates, scripts)
-   - Create documentation
-   - Organize/optimize existing files
-   - Research and document opportunities
+1. **Do NOT default to surveys.** Read `REVENUE_STACKING_IDLE_TIME.md` instead.
+2. **Pick highest-value activity that fits the time:**
+   - 5 min: Twitter quick-take post ($10-30)
+   - 10 min: Affiliate link audit ($10-20)
+   - 15 min: Email A/B test setup ($5-15)
+   - 20 min: Partner outreach pitch ($10-50/week)
+   - 30 min: Content repurposing ($20-50) or Lead magnet start ($50-100/mo)
+3. **Execute immediately** (no context switching)
+4. **Log in `shared/logs/REVENUE_STACKING_LOG.md`**
+5. **Resume primary work when blocker resolves**
+
+### If blocked for 30-60 minutes:
+
+1. **Pick Tier 2-3 activity** (partner outreach, lead magnet, content repurposing)
+2. **Execute fully** (complete module, not partial)
+3. **Do NOT reach for surveys** (surveys = lazy option)
+4. **Log results** (time spent, expected revenue, insights)
+5. **Resume primary work or pick next activity**
+
+### If all primary work complete:
+
+1. **Pick 2-3 revenue-stacking activities** to execute in parallel
+2. **Run in parallel with next content block** (don't wait idle)
+3. **Queue activities ahead** (always have 3-5 queued)
+4. **Never sit idle waiting for next block**
+
+### Surveys ONLY if:
+
+- All Tier 1-3 revenue stacking activities exhausted
+- Time gap exists that no other activity fits  
+- Primary work is truly blocked and can't pivot
+- Even then: pick 1-2 max, then return to recovery work
+
+**File:** `shared/queue/REVENUE_STACKING_IDLE_TIME.md` (detailed tier breakdown, priority order)
 
 ---
 
