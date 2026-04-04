@@ -41,6 +41,10 @@ for d in [QUEUE_DIR, CONTENT_DIR, LOGS_DIR, METRICS_DIR]:
 class TwitterClient:
     """Handle Twitter API interactions"""
     def __init__(self):
+        # Debug: Check if env vars are loaded
+        print(f"[Twitter] Bearer token exists: {bool(TWITTER_BEARER_TOKEN)}")
+        print(f"[Twitter] API Key exists: {bool(TWITTER_API_KEY)}")
+
         try:
             self.client = tweepy.Client(
                 bearer_token=TWITTER_BEARER_TOKEN,
@@ -50,30 +54,38 @@ class TwitterClient:
                 access_token_secret=TWITTER_ACCESS_TOKEN_SECRET,
                 wait_on_rate_limit=True
             )
+            print(f"[Twitter] Client initialized successfully")
         except Exception as e:
-            print(f"Twitter auth failed: {e}")
+            print(f"[Twitter] Auth failed: {e}")
             self.client = None
 
     def post_tweet(self, text: str) -> Optional[str]:
         """Post a single tweet, return tweet ID"""
         if not self.client:
+            print(f"[Twitter] Client is None, cannot post tweet")
             return None
         try:
+            print(f"[Twitter] Posting tweet ({len(text)} chars)")
             response = self.client.create_tweet(text=text)
-            return response.data.get("id") if response.data else None
+            tweet_id = response.data.get("id") if response.data else None
+            print(f"[Twitter] Tweet posted: {tweet_id}")
+            return tweet_id
         except Exception as e:
-            print(f"Tweet post failed: {e}")
+            print(f"[Twitter] Tweet post failed: {type(e).__name__}: {e}")
             return None
 
     def post_thread(self, tweets: List[str]) -> List[Optional[str]]:
         """Post a thread of tweets, return list of tweet IDs"""
         if not self.client:
+            print(f"[Twitter] Client is None, cannot post thread")
             return [None] * len(tweets)
 
+        print(f"[Twitter] Starting thread with {len(tweets)} tweets")
         tweet_ids = []
         reply_to_id = None
-        for tweet in tweets:
+        for i, tweet in enumerate(tweets):
             try:
+                print(f"[Twitter] Posting tweet {i+1}/{len(tweets)} ({len(tweet)} chars)")
                 response = self.client.create_tweet(
                     text=tweet,
                     reply_settings="everyone",
@@ -82,8 +94,9 @@ class TwitterClient:
                 tweet_id = response.data.get("id") if response.data else None
                 tweet_ids.append(tweet_id)
                 reply_to_id = tweet_id
+                print(f"[Twitter] Tweet {i+1} posted: {tweet_id}")
             except Exception as e:
-                print(f"Thread tweet failed: {e}")
+                print(f"[Twitter] Tweet {i+1} failed: {type(e).__name__}: {e}")
                 tweet_ids.append(None)
         return tweet_ids
 
@@ -318,33 +331,39 @@ class Orchestrator:
 
     def _post_twitter(self, content: str, item_name: str):
         """Parse and post Twitter thread"""
+        print(f"[Twitter Parse] Starting for {item_name}")
         # Split by --- separator (each section = one tweet)
         sections = re.split(r"\n-{3,}\n", content.strip())
+        print(f"[Twitter Parse] Found {len(sections)} sections")
 
         # Clean up sections (remove title line if present, trim whitespace)
         tweets = []
-        for section in sections:
+        for i, section in enumerate(sections):
             lines = section.strip().split('\n')
             # Skip title lines (starting with #)
             tweet_text = '\n'.join([l for l in lines if not l.startswith('#')]).strip()
             if tweet_text:
                 tweets.append(tweet_text)
+                print(f"[Twitter Parse] Section {i}: {len(tweet_text)} chars")
 
+        print(f"[Twitter Parse] Total tweets ready: {len(tweets)}")
         if not tweets:
             self.issues.append(f"{item_name}: No valid tweets found after parsing")
+            print(f"[Twitter Parse] ERROR: No tweets extracted from content")
             return
 
         # Post as thread
-        print(f"Posting {len(tweets)} tweets for {item_name}")
+        print(f"[Twitter Post] Posting {len(tweets)} tweets for {item_name}")
         tweet_ids = self.twitter.post_thread(tweets)
         successful = len([t for t in tweet_ids if t])
+        print(f"[Twitter Post] Result: {successful}/{len(tweets)} tweets posted")
 
         if successful > 0:
             self.completed.append(f"{item_name} ({successful}/{len(tweets)} tweets posted)")
             self.metrics[f"{item_name}"] = f"{successful} tweets"
         else:
             self.issues.append(f"{item_name}: Posted but no tweet IDs returned (check Twitter API)")
-            self.completed.append(f"{item_name} (posted {len(tweets)} tweets, awaiting confirmation)")
+            self.completed.append(f"{item_name} (attempted {len(tweets)} tweets)")
 
     def _queue_email(self, content: str, item_name: str):
         """Queue email for manual send or API integration"""
