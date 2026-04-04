@@ -178,6 +178,9 @@ class WorkQueueManager:
             print(f"Error reading content queue: {e}")
             return {}
 
+        # Normalize line endings to handle both Windows (CRLF) and Unix (LF)
+        content = content.replace("\r\n", "\n")
+
         # Parse "READY TO POST" section
         ready_section = re.search(
             r"## READY TO POST\n(.*?)(?=\n##|\Z)",
@@ -187,6 +190,7 @@ class WorkQueueManager:
 
         if not ready_section:
             print("Warning: No READY TO POST section found")
+            print(f"[Content Parse] Content preview: {content[:200]}")
             return {}
 
         items = {}
