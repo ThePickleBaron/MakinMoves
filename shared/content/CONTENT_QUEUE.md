@@ -1,9 +1,9 @@
 # Content Queue
 
 ## READY TO POST
-- Twitter thread: Shipping cycle (shared/content/twitter_shipping_part1.md)
-- Twitter thread: Silo problem (shared/content/twitter_shipping_part2.md)
-- Twitter thread: Data tracking (shared/content/twitter_shipping_part3.md)
+- Twitter thread: Shipping cycle (shared/content/twitter_shipping_part1_EDGY.md)
+- Twitter thread: Crypto cycle (shared/content/twitter_crypto_edgy.md)
+- Twitter thread: Stock momentum (shared/content/twitter_stock_momentum_edgy.md)
 
 ## IN PROGRESS
 - Email sequence (pending)
