@@ -318,20 +318,33 @@ class Orchestrator:
 
     def _post_twitter(self, content: str, item_name: str):
         """Parse and post Twitter thread"""
-        # Split by tweet markers (usually line breaks or "---")
-        tweets = re.split(r"\n(?:---|==)\n|\n\n", content.strip())
-        tweets = [t.strip() for t in tweets if t.strip() and len(t.strip()) <= 280]
+        # Split by --- separator (each section = one tweet)
+        sections = re.split(r"\n-{3,}\n", content.strip())
+
+        # Clean up sections (remove title line if present, trim whitespace)
+        tweets = []
+        for section in sections:
+            lines = section.strip().split('\n')
+            # Skip title lines (starting with #)
+            tweet_text = '\n'.join([l for l in lines if not l.startswith('#')]).strip()
+            if tweet_text:
+                tweets.append(tweet_text)
 
         if not tweets:
-            self.issues.append(f"{item_name}: No valid tweets found")
+            self.issues.append(f"{item_name}: No valid tweets found after parsing")
             return
 
         # Post as thread
+        print(f"Posting {len(tweets)} tweets for {item_name}")
         tweet_ids = self.twitter.post_thread(tweets)
         successful = len([t for t in tweet_ids if t])
 
-        self.completed.append(f"{item_name} ({successful}/{len(tweets)} tweets)")
-        self.metrics[f"{item_name} tweets"] = successful
+        if successful > 0:
+            self.completed.append(f"{item_name} ({successful}/{len(tweets)} tweets posted)")
+            self.metrics[f"{item_name}"] = f"{successful} tweets"
+        else:
+            self.issues.append(f"{item_name}: Posted but no tweet IDs returned (check Twitter API)")
+            self.completed.append(f"{item_name} (posted {len(tweets)} tweets, awaiting confirmation)")
 
     def _queue_email(self, content: str, item_name: str):
         """Queue email for manual send or API integration"""
