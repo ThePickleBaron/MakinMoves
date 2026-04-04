@@ -144,6 +144,13 @@ class WorkQueueManager:
         self.content_queue = CONTENT_DIR / "CONTENT_QUEUE.md"
         self.metrics_file = METRICS_DIR / "DAILY_METRICS.md"
 
+        # Debug paths
+        print(f"[Paths] PROJECT_ROOT: {PROJECT_ROOT}")
+        print(f"[Paths] SHARED: {SHARED}")
+        print(f"[Paths] CONTENT_DIR: {CONTENT_DIR}")
+        print(f"[Paths] content_queue path: {self.content_queue}")
+        print(f"[Paths] content_queue exists: {self.content_queue.exists()}")
+
     def read_queue(self) -> Dict:
         """Parse work queue markdown"""
         if not self.queue_file.exists():
@@ -179,23 +186,34 @@ class WorkQueueManager:
         )
 
         if not ready_section:
+            print("Warning: No READY TO POST section found")
             return {}
 
         items = {}
         for line in ready_section.group(1).strip().split("\n"):
             if line.startswith("- "):
-                # Parse: "- Twitter thread on [topic] (shared/content/twitter_*.md)"
+                # Parse: "- Twitter thread on [topic] (content/twitter_*.md)"
                 match = re.search(r"- (.+?) \((.*?)\)", line)
                 if match:
                     item_type = match.group(1)
-                    file_path = SHARED / match.group(2).lstrip("/")
+                    relative_path = match.group(2).lstrip("/")
+                    file_path = SHARED / relative_path
+
+                    print(f"[Content Parse] Item: {item_type}")
+                    print(f"[Content Parse] Relative path: {relative_path}")
+                    print(f"[Content Parse] Full path: {file_path}")
+                    print(f"[Content Parse] Exists: {file_path.exists()}")
 
                     if file_path.exists():
                         items[item_type] = {
                             "path": file_path,
                             "content": file_path.read_text()
                         }
+                        print(f"[Content Parse] ✅ Loaded {item_type}")
+                    else:
+                        print(f"[Content Parse] ❌ File not found: {file_path}")
 
+        print(f"[Content Parse] Total items loaded: {len(items)}")
         return items
 
     def log_execution(self, block_name: str, completed: List[str],
